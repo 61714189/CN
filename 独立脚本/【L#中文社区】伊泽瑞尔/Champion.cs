@@ -43,15 +43,15 @@ abstract class Champion
 
         SkinManager.AddToMenu(ref Menu);
 
-        Menu.AddSubMenu(new Menu("鐩爣閫夋嫨", "Target Selector"));
+        Menu.AddSubMenu(new Menu("目标选择", "Target Selector"));
         SimpleTs.AddToMenu(Menu.SubMenu("Target Selector"));
 
-        Menu.AddSubMenu(new Menu("璧扮爫", "Orbwalker"));
+        Menu.AddSubMenu(new Menu("走砍", "Orbwalker"));
         Orbwalker = new Orbwalking.Orbwalker(Menu.SubMenu("Orbwalker"));
 
         InitializeMenu();
 
-        Menu.AddItem(new MenuItem("Recall_block", "鍥炲煄鍋滄鑴氭湰").SetValue(true));
+        Menu.AddItem(new MenuItem("Recall_block", "回城停止脚本").SetValue(true));
         Menu.AddToMainMenu();
 
         Game.OnGameUpdate += Game_OnGameUpdate;

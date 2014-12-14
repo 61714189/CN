@@ -1,9 +1,9 @@
 ﻿/*
 ___________             __   .__                    _____                                              .____                     _________.__        
-\_   _____/_ __   ____ |  | _|__| ____    ____     /  _  \__  _  __ ____   __________   _____   ____   |    |    ____   ____    /   _____/|__| ____  
- |    __)|  |  \_/ ___\|  |/ /  |/    \  / ___\   /  /_\  \ \/ \/ // __ \ /  ___/  _ \ /     \_/ __ \  |    |  _/ __ \_/ __ \   \_____  \ |  |/    \ 
- |     \ |  |  /\  \___|    <|  |   |  \/ /_/  > /    |    \     /\  ___/ \___ (  <_> )  Y Y  \  ___/  |    |__\  ___/\  ___/   /        \|  |   |  \
- \___  / |____/  \___  >__|_ \__|___|  /\___  /  \____|__  /\/\_/  \___  >____  >____/|__|_|  /\___  > |_______ \___  >\___  > /_______  /|__|___|  /
+\_   _____/_ __   ____    ___ ____    ____     /  _  \__  _  __ ____   __________   _____   ____           ____   ____    /   _____/__ ____  
+     __)    \_/ ___\  / /  /    \  / ___\   /  /_\  \ \/ \/ // __ \ /  ___/  _ \ /     \_/ __ \        _/ __ \_/ __ \   \_____  \   /    \ 
+      \     /\  \___    <       \/ /_/  > /        \     /\  ___/ \___ (  <_> )  Y Y  \  ___/      __\  ___/\  ___/   /        \       \
+ \___  / ____/  \___  >___ \_____  /\___  /  \______  /\/\_/  \___  >____  >____/___  /\___  > _______ \___  >\___  > /_______  /_____  /
      \/              \/     \/       \//_____/           \/            \/     \/            \/     \/          \/   \/     \/          \/         \/ 
 */
 using System.Collections.Generic;
@@ -75,115 +75,111 @@ namespace FuckingAwesomeLeeSin
             R = new Spell(SpellSlot.R, 375);
             Q.SetSkillshot(Q.Instance.SData.SpellCastTime, Q.Instance.SData.LineWidth, Q.Instance.SData.MissileSpeed,true,SkillshotType.SkillshotLine);
             //Base menu
-            Menu = new Menu("L#涓枃绀惧尯-鐩插儳", ChampName, true);
+            Menu = new Menu("李青", ChampName, true);
             //Orbwalker and menu
-            Menu.AddSubMenu(new Menu("|璧扮爫|", "Orbwalker"));
+            Menu.AddSubMenu(new Menu("走砍", "Orbwalker"));
             LXOrbwalker.AddToMenu(Menu.SubMenu("Orbwalker"));
             //Target selector and menu
-            var ts = new Menu("|鐩爣閫夋嫨|", "Target Selector");
+            var ts = new Menu("目标选择", "Target Selector");
             SimpleTs.AddToMenu(ts);
             Menu.AddSubMenu(ts);
             //Combo menu
-            Menu.AddSubMenu(new Menu("|杩炴嫑|", "Combo"));
-            Menu.SubMenu("Combo").AddItem(new MenuItem("useQ", "|浣跨敤| Q").SetValue(true));
-            Menu.SubMenu("Combo").AddItem(new MenuItem("useQ2", "|浣跨敤| 浜屾Q").SetValue(true));
-            Menu.SubMenu("Combo").AddItem(new MenuItem("useW", "|杩炴嫑浣跨敤椤虹溂|").SetValue(true));
-            Menu.SubMenu("Combo").AddItem(new MenuItem("dsjk", "椤虹溂濡傛灉: "));
-            Menu.SubMenu("Combo").AddItem(new MenuItem("wMode", "> AA 鑼冨洿 || > Q 鑼冨洿").SetValue(true));
-            Menu.SubMenu("Combo").AddItem(new MenuItem("useE", "|浣跨敤| E").SetValue(true));
-            Menu.SubMenu("Combo").AddItem(new MenuItem("useR", "|浣跨敤| R").SetValue(false));
-            Menu.SubMenu("Combo").AddItem(new MenuItem("ksR", "|鑳藉嚮鏉€浣跨敤|R").SetValue(false));
-            Menu.SubMenu("Combo").AddItem(new MenuItem("starCombo", "|杩炴嫑|").SetValue(new KeyBind("T".ToCharArray()[0], KeyBindType.Press)));
-            Menu.SubMenu("Combo").AddItem(new MenuItem("random2ejwej", "W->Q->R->Q2"));
+            Menu.AddSubMenu(new Menu("连招", "Combo"));
+            Menu.SubMenu("Combo").AddItem(new MenuItem("useQ", "使用 Q").SetValue(true));
+            Menu.SubMenu("Combo").AddItem(new MenuItem("useQ2", "使用 二段Q").SetValue(true));
+            Menu.SubMenu("Combo").AddItem(new MenuItem("useW", "连招使用顺眼").SetValue(true));
+            Menu.SubMenu("Combo").AddItem(new MenuItem("dsjk", "顺眼如果: "));
+            Menu.SubMenu("Combo").AddItem(new MenuItem("wMode", "> AA 范围  > Q 范围").SetValue(true));
+            Menu.SubMenu("Combo").AddItem(new MenuItem("useE", "使用 E").SetValue(true));
+            Menu.SubMenu("Combo").AddItem(new MenuItem("useR", "使用 R").SetValue(false));
+            Menu.SubMenu("Combo").AddItem(new MenuItem("ksR", "能击杀使用R").SetValue(false));
+            Menu.SubMenu("Combo").AddItem(new MenuItem("starCombo", "连招").SetValue(new KeyBind("T".ToCharArray()[0], KeyBindType.Press)));
+            Menu.SubMenu("Combo").AddItem(new MenuItem("random2ejwej", "W>Q>R>Q2"));
 
-            var harassMenu = new Menu("|楠氭壈|", "Harass");
-            harassMenu.AddItem(new MenuItem("q1H", "|浣跨敤| Q").SetValue(true));
-            harassMenu.AddItem(new MenuItem("q2H", "|浣跨敤| 浜屾Q").SetValue(true));
-            harassMenu.AddItem(new MenuItem("wH", "椤虹溂/鏁屼汉闂幇(绂佺敤)").SetValue(false));
-            harassMenu.AddItem(new MenuItem("eH", "|浣跨敤| E").SetValue(true));
+            var harassMenu = new Menu("骚扰", "Harass");
+            harassMenu.AddItem(new MenuItem("q1H", "使用 Q").SetValue(true));
+            harassMenu.AddItem(new MenuItem("q2H", "使用 二段Q").SetValue(true));
+            harassMenu.AddItem(new MenuItem("wH", "顺眼/敌人闪现(禁用)").SetValue(false));
+            harassMenu.AddItem(new MenuItem("eH", "使用 E").SetValue(true));
             Menu.AddSubMenu(harassMenu);
 
             //Jung/Wave Clear
-            var waveclearMenu = new Menu("|娓呯嚎/娓呴噹|", "wjClear");
-            waveclearMenu.AddItem(new MenuItem("useQClear", "|浣跨敤| Q").SetValue(true));
-            waveclearMenu.AddItem(new MenuItem("useWClear", "|浣跨敤| W").SetValue(true));
-            waveclearMenu.AddItem(new MenuItem("useEClear", "|浣跨敤| E").SetValue(true));
+            var waveclearMenu = new Menu("清线/清野", "wjClear");
+            waveclearMenu.AddItem(new MenuItem("useQClear", "使用 Q").SetValue(true));
+            waveclearMenu.AddItem(new MenuItem("useWClear", "使用 W").SetValue(true));
+            waveclearMenu.AddItem(new MenuItem("useEClear", "使用 E").SetValue(true));
             Menu.AddSubMenu(waveclearMenu);
 
             //InsecMenu
-            var insecMenu = new Menu("|澶ф嫑璁剧疆|锛堥噹鍖虹柉鐙楋級", "Insec");
-            insecMenu.AddItem(new MenuItem("InsecEnabled", "|鍥炴棆韪").SetValue(new KeyBind("Y".ToCharArray()[0], KeyBindType.Press)));
-            insecMenu.AddItem(new MenuItem("rnshsasdhjk", "|澶ф嫑 妯″紡:|"));
-            insecMenu.AddItem(new MenuItem("insecMode", "宸﹂敭鍗曞嚮[寮€鍚痌 TS[鍏抽棴]").SetValue(true));
-            insecMenu.AddItem(new MenuItem("insecOrbwalk", "璺熼殢榧犳爣").SetValue(true));
-            insecMenu.AddItem(new MenuItem("flashInsec", "澶ф嫑浣跨敤闂幇").SetValue(false));
-            insecMenu.AddItem(new MenuItem("waitForQBuff", "绛夊緟Q鍥炲").SetValue(false));
-            insecMenu.AddItem(new MenuItem("22222222222222", "(鏇村揩鏇村鐨勪激瀹硘)"));
-            insecMenu.AddItem(new MenuItem("insec2champs", "|澶ф嫑鍚戠洘鍙媩").SetValue(true));
-            insecMenu.AddItem(new MenuItem("bonusRangeA", "|鐩熷弸鐨勫閲戣寖鍥磡").SetValue(new Slider(0, 0, 1000)));
-            insecMenu.AddItem(new MenuItem("insec2tower", "|澶ф嫑鍚戝|").SetValue(true));
-            insecMenu.AddItem(new MenuItem("bonusRangeT", "濉旂粰浜堣寖鍥磡e").SetValue(new Slider(0, 0, 1000)));
-            insecMenu.AddItem(new MenuItem("insec2orig", "|澶ф嫑鍚戝師濮嬩綅缃畖").SetValue(true));
-            insecMenu.AddItem(new MenuItem("22222222222", "--"));
-            insecMenu.AddItem(new MenuItem("instaFlashInsec1", "|鎵嬪姩R|"));
-            insecMenu.AddItem(new MenuItem("instaFlashInsec2", "|闂幇鍥炴棆韪㈠ぇ鎷涗綅缃畖"));
-            insecMenu.AddItem(new MenuItem("instaFlashInsec", "|绁為緳闂獆").SetValue(new KeyBind("P".ToCharArray()[0], KeyBindType.Toggle)));
+            var insecMenu = new Menu("大招设置（野区疯狗）", "Insec");
+            insecMenu.AddItem(new MenuItem("InsecEnabled", "回旋踢").SetValue(new KeyBind("Y".ToCharArray()[0], KeyBindType.Press)));
+            insecMenu.AddItem(new MenuItem("rnshsasdhjk", "大招 模式:"));
+            insecMenu.AddItem(new MenuItem("insecMode", "左键单击[开启] TS[关闭]").SetValue(true));
+            insecMenu.AddItem(new MenuItem("insecOrbwalk", "跟随鼠标").SetValue(true));
+            insecMenu.AddItem(new MenuItem("flashInsec", "大招使用闪现").SetValue(false));
+            insecMenu.AddItem(new MenuItem("waitForQBuff", "等待Q回复").SetValue(false));
+            insecMenu.AddItem(new MenuItem("22222222222222", "(更快更多的伤害)"));
+            insecMenu.AddItem(new MenuItem("insec2champs", "大招向盟友").SetValue(true));
+            insecMenu.AddItem(new MenuItem("bonusRangeA", "盟友的奖金范围").SetValue(new Slider(0, 0, 1000)));
+            insecMenu.AddItem(new MenuItem("insec2tower", "大招向塔").SetValue(true));
+            insecMenu.AddItem(new MenuItem("bonusRangeT", "塔给予范围e").SetValue(new Slider(0, 0, 1000)));
+            insecMenu.AddItem(new MenuItem("insec2orig", "大招向原始位置").SetValue(true));
+            insecMenu.AddItem(new MenuItem("22222222222", ""));
+            insecMenu.AddItem(new MenuItem("instaFlashInsec1", "手动R"));
+            insecMenu.AddItem(new MenuItem("instaFlashInsec2", "闪现回旋踢大招位置"));
+            insecMenu.AddItem(new MenuItem("instaFlashInsec", "神龙闪").SetValue(new KeyBind("P".ToCharArray()[0], KeyBindType.Toggle)));
             Menu.AddSubMenu(insecMenu);
 
-            var autoSmiteSettings = new Menu("| 鎯╂垝璁剧疆|", "Auto Smite Settings");
-            autoSmiteSettings.AddItem(new MenuItem("smiteEnabled", "|浣跨敤鎯╂垝|").SetValue(new KeyBind("M".ToCharArray()[0], KeyBindType.Toggle)));
-            autoSmiteSettings.AddItem(new MenuItem("qqSmite", "Q->鎯╂垝->Q").SetValue(true));
-            autoSmiteSettings.AddItem(new MenuItem("normSmite", "|姝ｅ父鎯╂垝|").SetValue(true));
-            autoSmiteSettings.AddItem(new MenuItem("drawSmite", "|鎯╂垝鑼冨洿|").SetValue(true));
+            var autoSmiteSettings = new Menu(" 惩戒设置", "Auto Smite Settings");
+            autoSmiteSettings.AddItem(new MenuItem("smiteEnabled", "使用惩戒").SetValue(new KeyBind("M".ToCharArray()[0], KeyBindType.Toggle)));
+            autoSmiteSettings.AddItem(new MenuItem("qqSmite", "Q>惩戒>Q").SetValue(true));
+            autoSmiteSettings.AddItem(new MenuItem("normSmite", "正常惩戒").SetValue(true));
+            autoSmiteSettings.AddItem(new MenuItem("drawSmite", "惩戒范围").SetValue(true));
             Menu.AddSubMenu(autoSmiteSettings);
 
             //SaveMe Menu
-            var SaveMeMenu = new Menu("|鎯╂垝淇濆瓨璁剧疆|", "Smite Save Settings");
-            SaveMeMenu.AddItem(new MenuItem("smiteSave", "|涓诲姩淇濆瓨鎯╂垝璁剧疆|").SetValue(true));
-            SaveMeMenu.AddItem(new MenuItem("hpPercentSM", "|WW鎯╁嚮鐨剕x%").SetValue(new Slider(10, 1)));
-            SaveMeMenu.AddItem(new MenuItem("param1", "鍑绘潃闄勮繎 濡傛灉琛€閲忋劎=x%")); // TBC
+            var SaveMeMenu = new Menu("惩戒保存设置", "Smite Save Settings");
+            SaveMeMenu.AddItem(new MenuItem("smiteSave", "主动保存惩戒设置").SetValue(true));
+            SaveMeMenu.AddItem(new MenuItem("hpPercentSM", "WW惩击的x%").SetValue(new Slider(10, 1)));
+            SaveMeMenu.AddItem(new MenuItem("param1", "击杀附近 如果血量ㄧ=x%")); // TBC
             SaveMeMenu.AddItem(new MenuItem("dBuffs", "Buffs").SetValue(true));// TBC
             SaveMeMenu.AddItem(new MenuItem("hpBuffs", "HP %").SetValue(new Slider(30, 1)));// TBC
-            SaveMeMenu.AddItem(new MenuItem("dEpics", "|鍙茶瘲|").SetValue(true));// TBC
+            SaveMeMenu.AddItem(new MenuItem("dEpics", "史诗").SetValue(true));// TBC
             SaveMeMenu.AddItem(new MenuItem("hpEpics", "HP %").SetValue(new Slider(10, 1)));// TBC
             Menu.AddSubMenu(SaveMeMenu);
             //Wardjump menu
-            var wardjumpMenu = new Menu("|椤虹溂璁剧疆|", "Wardjump");
+            var wardjumpMenu = new Menu("顺眼设置", "Wardjump");
             wardjumpMenu.AddItem(
-                new MenuItem("wjump", "|椤虹溂閿綅|").SetValue(new KeyBind("G".ToCharArray()[0], KeyBindType.Press)));
-            wardjumpMenu.AddItem(new MenuItem("maxRange", "|鎬绘槸椤虹溂鏈€澶ц寖鍥磡").SetValue(false));
-            wardjumpMenu.AddItem(new MenuItem("castInRange", "|鍙『鐪煎湪榧犳爣浣嶇疆|").SetValue(false));
-            wardjumpMenu.AddItem(new MenuItem("m2m", "|浣跨敤榧犳爣绉诲姩|").SetValue(true));
-            wardjumpMenu.AddItem(new MenuItem("j2m", "|璺冲悜鏈€寮辩殑浜簗").SetValue(true));
-            wardjumpMenu.AddItem(new MenuItem("j2c", "|璺冲悜鏈€寮虹殑浜簗").SetValue(true));
+                new MenuItem("wjump", "顺眼键位").SetValue(new KeyBind("G".ToCharArray()[0], KeyBindType.Press)));
+            wardjumpMenu.AddItem(new MenuItem("maxRange", "总是顺眼最大范围").SetValue(false));
+            wardjumpMenu.AddItem(new MenuItem("castInRange", "只顺眼在鼠标位置").SetValue(false));
+            wardjumpMenu.AddItem(new MenuItem("m2m", "使用鼠标移动").SetValue(true));
+            wardjumpMenu.AddItem(new MenuItem("j2m", "跳向最弱的人").SetValue(true));
+            wardjumpMenu.AddItem(new MenuItem("j2c", "跳向最强的人").SetValue(true));
             Menu.AddSubMenu(wardjumpMenu);
 
-            var drawMenu = new Menu("|鑼冨洿璁剧疆|", "Drawing");
-            drawMenu.AddItem(new MenuItem("DrawEnabled", "|杩炴嫑鑼冨洿|").SetValue(false));
-            drawMenu.AddItem(new MenuItem("WJDraw", "|椤虹溂鑼冨洿|").SetValue(true));
-            drawMenu.AddItem(new MenuItem("drawQ", "|Q 鑼冨洿|").SetValue(true));
-            drawMenu.AddItem(new MenuItem("drawW", "|W 鑼冨洿|").SetValue(true));
-            drawMenu.AddItem(new MenuItem("drawE", "|E 鑼冨洿|").SetValue(true));
-            drawMenu.AddItem(new MenuItem("drawR", "|R 鑼冨洿|").SetValue(true));
+            var drawMenu = new Menu("范围设置", "Drawing");
+            drawMenu.AddItem(new MenuItem("DrawEnabled", "连招范围").SetValue(false));
+            drawMenu.AddItem(new MenuItem("WJDraw", "顺眼范围").SetValue(true));
+            drawMenu.AddItem(new MenuItem("drawQ", "Q 范围").SetValue(true));
+            drawMenu.AddItem(new MenuItem("drawW", "W 范围").SetValue(true));
+            drawMenu.AddItem(new MenuItem("drawE", "E 范围").SetValue(true));
+            drawMenu.AddItem(new MenuItem("drawR", "R 范围").SetValue(true));
             Menu.AddSubMenu(drawMenu);
 
             //Exploits
-            var miscMenu = new Menu("鏉傞」璁剧疆", "Misc");
-            miscMenu.AddItem(new MenuItem("NFE", "浣跨敤灏佸寘").SetValue(true));
-            miscMenu.AddItem(new MenuItem("QHC", "Q |鍛戒腑鐜噟").SetValue(new StringList(new []{"浣巪", "姝ｅ父", "楂榺"}, 1)));
-            miscMenu.AddItem(new MenuItem("IGNks", "浣跨敤鐐圭噧").SetValue(true));
-            miscMenu.AddItem(new MenuItem("qSmite", "鎯╂垝 Q!").SetValue(true));
+            var miscMenu = new Menu("杂项设置", "Misc");
+            miscMenu.AddItem(new MenuItem("NFE", "使用封包").SetValue(true));
+            miscMenu.AddItem(new MenuItem("QHC", "Q 命中率").SetValue(new StringList(new []{"低", "正常", "高"}, 1)));
+            miscMenu.AddItem(new MenuItem("IGNks", "使用点燃").SetValue(true));
+            miscMenu.AddItem(new MenuItem("qSmite", "惩戒 Q!").SetValue(true));
             Menu.AddSubMenu(miscMenu);
             //Make the menu visible
             Menu.AddToMainMenu();
-			Menu.AddSubMenu(new Menu("L#涓枃绀惧尯", "AD"));
-				Menu.SubMenu("AD").AddItem(new MenuItem("wangzhan", "www.loll35.com"));
-				Menu.SubMenu("AD").AddItem(new MenuItem("qunhao", "姹夊寲缇わ細397983217"));
             Drawing.OnDraw += Drawing_OnDraw; // Add onDraw
             Game.OnGameUpdate += Game_OnGameUpdate; // adds OnGameUpdate (Same as onTick in bol)
             Obj_AI_Base.OnProcessSpellCast += Obj_AI_Base_OnProcessSpellCast;
-
-            PrintMessage("鍔犺浇鎴愬姛 www.loll35.com 娆㈣繋璁块棶");
+         
         }
 
         public static double SmiteDmg()
@@ -206,9 +202,9 @@ namespace FuckingAwesomeLeeSin
 
             if (q && Q.IsReady() && Q.Instance.Name == "BlindMonkQOne" && target.IsValidTarget(Q.Range)) CastQ1(target);
             if (q2 && Q.IsReady() &&
-                (target.HasBuff("BlindMonkQOne", true) || target.HasBuff("blindmonkqonechaos", true)))
+                (target.HasBuff("BlindMonkQOne", true)  target.HasBuff("blindmonkqonechaos", true)))
             {
-                if(CastQAgain || !target.IsValidTarget(LXOrbwalker.GetAutoAttackRange(_player))) Q.Cast();
+                if(CastQAgain  !target.IsValidTarget(LXOrbwalker.GetAutoAttackRange(_player))) Q.Cast();
             }
             if (e && E.IsReady() && target.IsValidTarget(E.Range) && E.Instance.Name == "BlindMonkEOne") E.Cast();
 
@@ -303,12 +299,12 @@ namespace FuckingAwesomeLeeSin
                 switch (InsecComboStep)
                 {
                     case InsecComboStepSelect.QGAPCLOSE:
-                        if (!(target.HasBuff("BlindMonkQOne", true) || target.HasBuff("blindmonkqonechaos", true)) &&
+                        if (!(target.HasBuff("BlindMonkQOne", true)  target.HasBuff("blindmonkqonechaos", true)) &&
                             Q.Instance.Name == "BlindMonkQOne")
                         {
                             CastQ1(target);
                         }
-                        else if ((target.HasBuff("BlindMonkQOne", true) || target.HasBuff("blindmonkqonechaos", true)))
+                        else if ((target.HasBuff("BlindMonkQOne", true)  target.HasBuff("blindmonkqonechaos", true)))
                         {
                             Q.Cast();
                             InsecComboStep = InsecComboStepSelect.WGAPCLOSE;
@@ -317,14 +313,14 @@ namespace FuckingAwesomeLeeSin
                     case InsecComboStepSelect.WGAPCLOSE:
                         if (W.IsReady() && W.Instance.Name == "BlindMonkWOne" &&
                             (paramBool("waitForQBuff")
-                                ? !(target.HasBuff("BlindMonkQOne", true) || target.HasBuff("blindmonkqonechaos", true))
+                                ? !(target.HasBuff("BlindMonkQOne", true)  target.HasBuff("blindmonkqonechaos", true))
                                 : true))
                         {
                             WardJump(getInsecPos(target), false, false, true);
                             wardJumped = true;
                         }
                         else if (_player.SummonerSpellbook.CanUseSpell(flashSlot) == SpellState.Ready &&
-                                 paramBool("flashInsec") && !wardJumped && _player.Distance(insecPos) < 400 ||
+                                 paramBool("flashInsec") && !wardJumped && _player.Distance(insecPos) < 400 
                                  _player.SummonerSpellbook.CanUseSpell(flashSlot) == SpellState.Ready &&
                                  paramBool("flashInsec") && !wardJumped && _player.Distance(insecPos) < 400 &&
                                  Items.GetWardSlot() == null)
@@ -374,11 +370,11 @@ namespace FuckingAwesomeLeeSin
 
         static Vector2 V2E(Vector3 from, Vector3 direction, float distance)
         {
-            return from.To2D() + distance * Vector3.Normalize(direction - from).To2D();
+            return from.To2D() + distance * Vector3.Normalize(direction  from).To2D();
         }
         public static void SaveMe()
         {
-            if ((_player.Health / _player.MaxHealth * 100) > Menu.Item("hpPercentSM").GetValue<Slider>().Value || _player.SummonerSpellbook.CanUseSpell(smiteSlot) != SpellState.Ready) return;
+            if ((_player.Health / _player.MaxHealth * 100) > Menu.Item("hpPercentSM").GetValue<Slider>().Value  _player.SummonerSpellbook.CanUseSpell(smiteSlot) != SpellState.Ready) return;
             var epicSafe = false;
             var buffSafe = false;
             foreach (
@@ -404,11 +400,11 @@ namespace FuckingAwesomeLeeSin
                 }
             }
 
-            if(epicSafe || buffSafe) return;
+            if(epicSafe  buffSafe) return;
 
             foreach (var minion in MinionManager.GetMinions(_player.Position, 700f, MinionTypes.All, MinionTeam.NotAlly, MinionOrderTypes.MaxHealth))
             {
-                if (!W.IsReady() && !_player.HasBuff("BlindMonkIronWill") || smiteSlot == SpellSlot.Unknown ||
+                if (!W.IsReady() && !_player.HasBuff("BlindMonkIronWill")  smiteSlot == SpellSlot.Unknown 
                     smiteSlot != SpellSlot.Unknown &&
                     _player.SummonerSpellbook.CanUseSpell(smiteSlot) != SpellState.Ready) break;
                 if (minion.Name.ToLower().Contains("ward")) return;
@@ -503,15 +499,15 @@ namespace FuckingAwesomeLeeSin
                 Utility.DrawCircle(JumpPos.To3D(), 20, System.Drawing.Color.Red);
                 Utility.DrawCircle(_player.Position, 600, System.Drawing.Color.Red);
             }
-            if (paramBool("drawQ")) Utility.DrawCircle(_player.Position, Q.Range - 80, Q.IsReady() ? System.Drawing.Color.LightSkyBlue :System.Drawing.Color.Tomato);
-            if (paramBool("drawW")) Utility.DrawCircle(_player.Position, W.Range - 80, W.IsReady() ? System.Drawing.Color.LightSkyBlue :System.Drawing.Color.Tomato);
-            if (paramBool("drawE")) Utility.DrawCircle(_player.Position, E.Range - 80, E.IsReady() ? System.Drawing.Color.LightSkyBlue :System.Drawing.Color.Tomato);
-            if (paramBool("drawR")) Utility.DrawCircle(_player.Position, R.Range - 80, R.IsReady() ? System.Drawing.Color.LightSkyBlue :System.Drawing.Color.Tomato);
+            if (paramBool("drawQ")) Utility.DrawCircle(_player.Position, Q.Range  80, Q.IsReady() ? System.Drawing.Color.LightSkyBlue :System.Drawing.Color.Tomato);
+            if (paramBool("drawW")) Utility.DrawCircle(_player.Position, W.Range  80, W.IsReady() ? System.Drawing.Color.LightSkyBlue :System.Drawing.Color.Tomato);
+            if (paramBool("drawE")) Utility.DrawCircle(_player.Position, E.Range  80, E.IsReady() ? System.Drawing.Color.LightSkyBlue :System.Drawing.Color.Tomato);
+            if (paramBool("drawR")) Utility.DrawCircle(_player.Position, R.Range  80, R.IsReady() ? System.Drawing.Color.LightSkyBlue :System.Drawing.Color.Tomato);
 
         }
         public static float Q2Damage(Obj_AI_Base target, float subHP = 0, bool monster = false)
         {
-            var damage = (50 + (Q.Level*30)) + (0.09 * _player.FlatPhysicalDamageMod) + ((target.MaxHealth - (target.Health - subHP))*0.08);
+            var damage = (50 + (Q.Level*30)) + (0.09 * _player.FlatPhysicalDamageMod) + ((target.MaxHealth  (target.Health  subHP))*0.08);
             if (monster && damage > 400) return (float) Damage.CalcDamage(_player, target, Damage.DamageType.Physical, 400);
             return (float) Damage.CalcDamage(_player, target, Damage.DamageType.Physical, damage);
         }
@@ -552,23 +548,23 @@ namespace FuckingAwesomeLeeSin
                         {
                             _player.SummonerSpellbook.CastSpell(smiteSlot, minion);
                         }
-                        if (!Q.IsReady() || !paramBool("qqSmite")) return;
+                        if (!Q.IsReady()  !paramBool("qqSmite")) return;
 
                         if (Q2Damage(minion, ((float) SmiteDmg() + Q.GetDamage(minion)), true) + SmiteDmg() >
                             minion.Health &&
-                            !(minion.HasBuff("BlindMonkQOne", true) || minion.HasBuff("blindmonkqonechaos", true)))
+                            !(minion.HasBuff("BlindMonkQOne", true)  minion.HasBuff("blindmonkqonechaos", true)))
                         {
                             Q.Cast(minion, true);
                         }
                         if ((Q2Damage(minion, (float) SmiteDmg(), true) + SmiteDmg()) > minion.Health &&
-                            (minion.HasBuff("BlindMonkQOne", true) || minion.HasBuff("blindmonkqonechaos", true)))
+                            (minion.HasBuff("BlindMonkQOne", true)  minion.HasBuff("blindmonkqonechaos", true)))
                         {
                             Q.CastOnUnit(_player, true);
                             checkSmite = true;
                         }
-                        if ((minion.HasBuff("BlindMonkQOne", true) || minion.HasBuff("blindmonkqonechaos", true)) &&
-                            CastQAgain ||
-                            (minion.HasBuff("BlindMonkQOne", true) || minion.HasBuff("blindmonkqonechaos", true)) &&
+                        if ((minion.HasBuff("BlindMonkQOne", true)  minion.HasBuff("blindmonkqonechaos", true)) &&
+                            CastQAgain 
+                            (minion.HasBuff("BlindMonkQOne", true)  minion.HasBuff("blindmonkqonechaos", true)) &&
                             Q2Damage(minion, 0, true) > minion.Health)
                         {
                             Q.CastOnUnit(_player, true);
@@ -619,7 +615,7 @@ namespace FuckingAwesomeLeeSin
                     }
                 }
             }
-            if (minion == null || minion.Name.ToLower().Contains("ward")) return;
+            if (minion == null  minion.Name.ToLower().Contains("ward")) return;
                 if (Menu.Item("useQClear").GetValue<bool>() && Q.IsReady())
                 {
                     if (Q.Instance.Name == "BlindMonkQOne")
@@ -629,8 +625,8 @@ namespace FuckingAwesomeLeeSin
                             Q.Cast(minion, true);
                         }
                     }
-                    else if ((minion.HasBuff("BlindMonkQOne", true) ||
-                             minion.HasBuff("blindmonkqonechaos", true)) && (!passiveIsActive || Q.IsKillable(minion, 1)) ||
+                    else if ((minion.HasBuff("BlindMonkQOne", true) 
+                             minion.HasBuff("blindmonkqonechaos", true)) && (!passiveIsActive  Q.IsKillable(minion, 1)) 
                              _player.Distance(minion) > 500) Q.Cast();
                 }
                 if (paramBool("useWClear") && isJung && _player.Distance(minion) < LXOrbwalker.GetAutoAttackRange(_player))
@@ -659,7 +655,7 @@ namespace FuckingAwesomeLeeSin
                         delayW = true;
                         Utility.DelayAction.Add(300, () => delayW = false);
                     }
-                    else if (minion.HasBuff("BlindMonkEOne", true) && (!passiveIsActive || _player.Distance(minion) > 450))
+                    else if (minion.HasBuff("BlindMonkEOne", true) && (!passiveIsActive  _player.Distance(minion) > 450))
                     {
                         E.Cast();
                     }
@@ -668,12 +664,12 @@ namespace FuckingAwesomeLeeSin
         private static void WardJump(Vector3 pos, bool m2m = true, bool maxRange = false, bool reqinMaxRange = false, bool minions = true, bool champions = true)
         {
             var basePos = _player.Position.To2D();
-            var newPos = (pos.To2D() - _player.Position.To2D());
+            var newPos = (pos.To2D()  _player.Position.To2D());
 
             if (JumpPos == new Vector2())
             {
                 if (reqinMaxRange) JumpPos = pos.To2D();
-                else if (maxRange || _player.Distance(pos) > 590) JumpPos = basePos + (newPos.Normalized() * (590));
+                else if (maxRange  _player.Distance(pos) > 590) JumpPos = basePos + (newPos.Normalized() * (590));
                 else JumpPos = basePos + (newPos.Normalized()*(_player.Distance(pos)));
             }
             if (JumpPos != new Vector2() && reCheckWard)
@@ -689,8 +685,8 @@ namespace FuckingAwesomeLeeSin
                 });
             }
             if (m2m) Orbwalk(pos);
-            if (!W.IsReady() || W.Instance.Name == "blindmonkwtwo" || reqinMaxRange && _player.Distance(pos) > W.Range) return;
-            if (minions || champions)
+            if (!W.IsReady()  W.Instance.Name == "blindmonkwtwo"  reqinMaxRange && _player.Distance(pos) > W.Range) return;
+            if (minions  champions)
             {
                 if (champions)
                 {
@@ -743,14 +739,14 @@ namespace FuckingAwesomeLeeSin
             Orbwalk(Game.CursorPos);
             if (target == null) return;
             useItems(target);
-            if ((target.HasBuff("BlindMonkQOne", true) || target.HasBuff("blindmonkqonechaos", true)))
+            if ((target.HasBuff("BlindMonkQOne", true)  target.HasBuff("blindmonkqonechaos", true)))
             {
-                if (CastQAgain || target.HasBuffOfType(BuffType.Knockup) && !_player.IsValidTarget(300) && !R.IsReady() || !target.IsValidTarget(LXOrbwalker.GetAutoAttackRange(_player)) && !R.IsReady())
+                if (CastQAgain  target.HasBuffOfType(BuffType.Knockup) && !_player.IsValidTarget(300) && !R.IsReady()  !target.IsValidTarget(LXOrbwalker.GetAutoAttackRange(_player)) && !R.IsReady())
                 {
                     Q.Cast();
                 }
             }
-            if (target.Distance(_player) > R.Range && target.Distance(_player) < R.Range + 580 && (target.HasBuff("BlindMonkQOne", true) || target.HasBuff("blindmonkqonechaos", true)))
+            if (target.Distance(_player) > R.Range && target.Distance(_player) < R.Range + 580 && (target.HasBuff("BlindMonkQOne", true)  target.HasBuff("blindmonkqonechaos", true)))
             {
                 WardJump(target.Position, false);
             }
@@ -765,7 +761,7 @@ namespace FuckingAwesomeLeeSin
                 CastQ1(target);
 
             if (R.IsReady() && Q.IsReady() &&
-                ((target.HasBuff("BlindMonkQOne", true) || target.HasBuff("blindmonkqonechaos", true))))
+                ((target.HasBuff("BlindMonkQOne", true)  target.HasBuff("blindmonkqonechaos", true))))
                 R.CastOnUnit(target, packets());
         }
         public static void StarCombo()
@@ -774,9 +770,9 @@ namespace FuckingAwesomeLeeSin
             if (target == null) return;
             if (R.GetDamage(target) >= target.Health && paramBool("ksR")) R.Cast();
             useItems(target);
-            if ((target.HasBuff("BlindMonkQOne", true) || target.HasBuff("blindmonkqonechaos", true)) && paramBool("useQ2"))
+            if ((target.HasBuff("BlindMonkQOne", true)  target.HasBuff("blindmonkqonechaos", true)) && paramBool("useQ2"))
             {
-                if (CastQAgain || target.HasBuffOfType(BuffType.Knockup) && !_player.IsValidTarget(300) && !R.IsReady() || !target.IsValidTarget(LXOrbwalker.GetAutoAttackRange(_player)) && !R.IsReady())
+                if (CastQAgain  target.HasBuffOfType(BuffType.Knockup) && !_player.IsValidTarget(300) && !R.IsReady()  !target.IsValidTarget(LXOrbwalker.GetAutoAttackRange(_player)) && !R.IsReady())
                 {
                     Q.Cast();
                 }
@@ -798,7 +794,7 @@ namespace FuckingAwesomeLeeSin
                 CastQ1(target);
 
             if (R.IsReady() && Q.IsReady() &&
-                ((target.HasBuff("BlindMonkQOne", true) || target.HasBuff("blindmonkqonechaos", true))) && paramBool("useR"))
+                ((target.HasBuff("BlindMonkQOne", true)  target.HasBuff("blindmonkqonechaos", true))) && paramBool("useR"))
                 R.CastOnUnit(target, packets());
         }
         public static void CastQ1(Obj_AI_Hero target)

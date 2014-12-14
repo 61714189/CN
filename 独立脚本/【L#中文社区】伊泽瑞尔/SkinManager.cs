@@ -24,8 +24,8 @@ class SkinManager
 
         if (Skins.Count > 0)
         {
-            Menu.AddSubMenu(new Menu("鎹㈣偆", "Skin Changer"));
-            Menu.SubMenu("Skin Changer").AddItem(new MenuItem("Skin_" + ObjectManager.Player.ChampionName + "_enabled", "鎵撳紑鎹㈣偆").SetValue(false));
+            Menu.AddSubMenu(new Menu("换肤", "Skin Changer"));
+            Menu.SubMenu("Skin Changer").AddItem(new MenuItem("Skin_" + ObjectManager.Player.ChampionName + "_enabled", "打开换肤 ").SetValue(false));
             Menu.SubMenu("Skin Changer").AddItem(new MenuItem("Skin_" + ObjectManager.Player.ChampionName + "_select", "Skins").SetValue(new StringList(Skins.ToArray())));
             SelectedSkin = Menu.Item("Skin_" + ObjectManager.Player.ChampionName + "_select").GetValue<StringList>().SelectedIndex;
         }

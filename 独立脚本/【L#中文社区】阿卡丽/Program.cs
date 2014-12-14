@@ -11,7 +11,7 @@ namespace RoyalAkali
 {
     //TODO
     /*
-     * Use W if < % HP and 鈩?enemies around //Panic mode - CHECK
+     * Use W if < % HP and ??enemies around //Panic mode - CHECK
      * Use W for bush vision(configure ward\W) //WIP
      * Smart R killsteal
      *      To remove - Dont dive with ulti under towers unless you can kill enemy with R so you could get out with the stack you gain
@@ -22,7 +22,7 @@ namespace RoyalAkali
         static readonly Obj_AI_Hero player = ObjectManager.Player;
         static readonly string localVersion = "1.07";
 
-        static Menu menu = new Menu("Akali", "Akali", true);
+        static Menu menu = new Menu("【超神汉化】阿卡丽", "Akali", true);
 
         static Spell E;
         static Spell Q;
@@ -275,7 +275,7 @@ namespace RoyalAkali
         static void CastW()
         {
             //
-            //menu.SubMenu("misc").AddItem(new MenuItem("PanicW", "In combo if 鈩?of enemies around").SetValue(new Slider(0, 0, 5)));
+            //menu.SubMenu("misc").AddItem(new MenuItem("PanicW", "In combo if ??of enemies around").SetValue(new Slider(0, 0, 5)));
             //menu.SubMenu("misc").AddItem(new MenuItem("PanicWN", "In combo in %HP < ").SetValue(new Slider(25, 0, 100)));
             //
             byte enemiesAround = 0;
@@ -454,40 +454,40 @@ namespace RoyalAkali
             menu.AddSubMenu(targetSelector);
             */
 
-            Menu SOW = new Menu("璧扮爫", "orbwalker");
+            Menu SOW = new Menu("走砍", "orbwalker");
             menu.AddSubMenu(SOW);
             LXOrbwalker.AddToMenu(SOW);
 
-            menu.AddSubMenu(new Menu("杩炴嫑", "combo"));
-            menu.SubMenu("combo").AddItem(new MenuItem("useQ", "浣跨敤Q").SetValue(true));
-            menu.SubMenu("combo").AddItem(new MenuItem("useW", "浣跨敤W").SetValue(true));
-            menu.SubMenu("combo").AddItem(new MenuItem("useE", "浣跨敤E").SetValue(true));
-            menu.SubMenu("combo").AddItem(new MenuItem("useR", "浣跨敤R").SetValue(true));
+            menu.AddSubMenu(new Menu("连招", "combo"));
+            menu.SubMenu("combo").AddItem(new MenuItem("useQ", "使用Q").SetValue(true));
+            menu.SubMenu("combo").AddItem(new MenuItem("useW", "使用W").SetValue(true));
+            menu.SubMenu("combo").AddItem(new MenuItem("useE", "使用E").SetValue(true));
+            menu.SubMenu("combo").AddItem(new MenuItem("useR", "使用R").SetValue(true));
 
-            menu.AddSubMenu(new Menu("楠氭壈", "harass"));
-            menu.SubMenu("harass").AddItem(new MenuItem("useQ", "浣跨敤Q").SetValue(false));
-            menu.SubMenu("harass").AddItem(new MenuItem("useE", "浣跨敤E").SetValue(true));
+            menu.AddSubMenu(new Menu("骚扰", "harass"));
+            menu.SubMenu("harass").AddItem(new MenuItem("useQ", "使用Q").SetValue(false));
+            menu.SubMenu("harass").AddItem(new MenuItem("useE", "使用E").SetValue(true));
 
-            menu.AddSubMenu(new Menu("娓呯嚎", "laneclear"));
-            menu.SubMenu("laneclear").AddItem(new MenuItem("useQ", "浣跨敤Q琛ュ叺").SetValue(true));
-            menu.SubMenu("laneclear").AddItem(new MenuItem("useE", "浣跨敤E娓呯嚎").SetValue(true));
-            menu.SubMenu("laneclear").AddItem(new MenuItem("hitCounter", "X灏忓叺浣跨敤E").SetValue(new Slider(3, 1, 6)));
+            menu.AddSubMenu(new Menu("清线", "laneclear"));
+            menu.SubMenu("laneclear").AddItem(new MenuItem("useQ", "使用Q补兵").SetValue(true));
+            menu.SubMenu("laneclear").AddItem(new MenuItem("useE", "使用E清线").SetValue(true));
+            menu.SubMenu("laneclear").AddItem(new MenuItem("hitCounter", "X小兵使用E").SetValue(new Slider(3, 1, 6)));
 
-            menu.AddSubMenu(new Menu("鏉傞」", "misc"));
-            menu.SubMenu("misc").AddItem(new MenuItem("0", "澶ф嫑:"));
-            menu.SubMenu("misc").AddItem(new MenuItem("escape", "閫冭窇").SetValue(new KeyBind('G', KeyBindType.Press)));
-            menu.SubMenu("misc").AddItem(new MenuItem("RCounter", "R>X 涓嶉€冭窇").SetValue(new Slider(1, 1, 3)));
-            menu.SubMenu("misc").AddItem(new MenuItem("RKillsteal", "鐢≧鍑绘潃").SetValue(false));
+            menu.AddSubMenu(new Menu("杂项", "misc"));
+            menu.SubMenu("misc").AddItem(new MenuItem("0", "大招:"));
+            menu.SubMenu("misc").AddItem(new MenuItem("escape", "逃跑").SetValue(new KeyBind('G', KeyBindType.Press)));
+            menu.SubMenu("misc").AddItem(new MenuItem("RCounter", "R>X 不逃跑").SetValue(new Slider(1, 1, 3)));
+            menu.SubMenu("misc").AddItem(new MenuItem("RKillsteal", "用R击杀").SetValue(false));
             menu.SubMenu("misc").AddItem(new MenuItem("1", "W"));
-            menu.SubMenu("misc").AddItem(new MenuItem("PanicW", "鏁屼汉>X").SetValue(new Slider(1, 1, 5)));
+            menu.SubMenu("misc").AddItem(new MenuItem("PanicW", "敌人>X").SetValue(new Slider(1, 1, 5)));
             menu.SubMenu("misc").AddItem(new MenuItem("PanicWN", "HP<X%").SetValue(new Slider(25, 0, 100)));
-            menu.SubMenu("misc").AddItem(new MenuItem("2", "鍏朵粬"));
-            menu.SubMenu("misc").AddItem(new MenuItem("packets", "浣跨敤灏佸寘").SetValue(true));
+            menu.SubMenu("misc").AddItem(new MenuItem("2", "其他"));
+            menu.SubMenu("misc").AddItem(new MenuItem("packets", "使用封包").SetValue(true));
             //menu.SubMenu("misc").AddItem(new MenuItem("antipink", "Cast red trinket to diasble enemy pink").SetValue(true));
 
 			
 				
-            var dmgAfterComboItem = new MenuItem("DamageAfterCombo", "鏄剧ず浼ゅ").SetValue(true);
+            var dmgAfterComboItem = new MenuItem("DamageAfterCombo", "显示伤害").SetValue(true);
             Utility.HpBarDamageIndicator.DamageToUnit += hero => (float)IsRapeble(hero);
             Utility.HpBarDamageIndicator.Enabled = dmgAfterComboItem.GetValue<bool>();
             dmgAfterComboItem.ValueChanged += delegate(object sender, OnValueChangeEventArgs eventArgs)
@@ -495,18 +495,18 @@ namespace RoyalAkali
                 Utility.HpBarDamageIndicator.Enabled = eventArgs.GetNewValue<bool>();
             };
 
-            Menu drawings = new Menu("鏄剧ず", "drawings");
+            Menu drawings = new Menu("显示", "drawings");
             menu.AddSubMenu(drawings);
-            drawings.AddItem(new MenuItem("Qrange", "Q鑼冨洿").SetValue(new Circle(true, Color.FromArgb(150, Color.IndianRed))));
-            drawings.AddItem(new MenuItem("Wrange", "W鑼冨洿").SetValue(new Circle(true, Color.FromArgb(150, Color.IndianRed))));
-            drawings.AddItem(new MenuItem("Erange", "E鑼冨洿").SetValue(new Circle(false, Color.FromArgb(150, Color.DarkRed))));
-            drawings.AddItem(new MenuItem("Rrange", "R鑼冨洿").SetValue(new Circle(false, Color.FromArgb(150, Color.DarkRed))));
-            drawings.AddItem(new MenuItem("RAPE", "鏄剧ず鍙潃鐩爣").SetValue<bool>(true));
+            drawings.AddItem(new MenuItem("Qrange", "Q范围").SetValue(new Circle(true, Color.FromArgb(150, Color.IndianRed))));
+            drawings.AddItem(new MenuItem("Wrange", "W范围").SetValue(new Circle(true, Color.FromArgb(150, Color.IndianRed))));
+            drawings.AddItem(new MenuItem("Erange", "E范围").SetValue(new Circle(false, Color.FromArgb(150, Color.DarkRed))));
+            drawings.AddItem(new MenuItem("Rrange", "R范围").SetValue(new Circle(false, Color.FromArgb(150, Color.DarkRed))));
+            drawings.AddItem(new MenuItem("RAPE", "显示可杀目标").SetValue<bool>(true));
             drawings.AddItem(dmgAfterComboItem);
 
-			menu.AddSubMenu(new Menu("L#涓枃绀惧尯", "AD"));
-				menu.SubMenu("AD").AddItem(new MenuItem("WANGZHAN", "www.loll35.com"));
-				menu.SubMenu("AD").AddItem(new MenuItem("qunhao", "姹夊寲缇わ細397983217"));
+			menu.AddSubMenu(new Menu("超神汉化", "by wuwei"));
+				menu.SubMenu("by wuwei").AddItem(new MenuItem("qunhao", "汉化群：386289593"));
+				menu.SubMenu("by wuwei").AddItem(new MenuItem("qunhao2", "娃娃群：158994507"));
 				
             menu.AddToMainMenu();
         }

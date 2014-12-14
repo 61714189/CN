@@ -62,141 +62,136 @@ namespace Zed
             _youmuu = new Items.Item(3142, 10);
             _igniteSlot = _player.GetSpellSlot("SummonerDot");
             // Just menu things test
-            _config = new Menu("L#涓枃绀惧尯-褰辨祦涔嬩富", "Ze-D Is Back", true);
+            _config = new Menu("【L#中文社区】影流之主", "Ze-D Is Back", true);
 
-            var targetSelectorMenu = new Menu("鐩爣閫夋嫨", "Target Selector");
+            var targetSelectorMenu = new Menu("目标选择", "Target Selector");
             SimpleTs.AddToMenu(targetSelectorMenu);
             _config.AddSubMenu(targetSelectorMenu);
 
-            _config.AddSubMenu(new Menu("璧扮爫", "Orbwalking"));
+            _config.AddSubMenu(new Menu("走砍", "Orbwalking"));
             _orbwalker = new Orbwalking.Orbwalker(_config.SubMenu("Orbwalking"));
 
             //Combo
-            _config.AddSubMenu(new Menu("杩炴嫑", "Combo"));
-            _config.SubMenu("Combo").AddItem(new MenuItem("UseWC", "浣跨敤W(闃茬獊)")).SetValue(true);
-            _config.SubMenu("Combo").AddItem(new MenuItem("UseIgnitecombo", "浣跨敤鐐圭噧")).SetValue(true);
+            _config.AddSubMenu(new Menu("连招", "Combo"));
+            _config.SubMenu("Combo").AddItem(new MenuItem("UseWC", "使用W(防突)")).SetValue(true);
+            _config.SubMenu("Combo").AddItem(new MenuItem("UseIgnitecombo", "使用点燃")).SetValue(true);
             _config.SubMenu("Combo")
-                .AddItem(new MenuItem("ActiveCombo", "杩炴嫑").SetValue(new KeyBind(32, KeyBindType.Press)));
+                .AddItem(new MenuItem("ActiveCombo", "连招").SetValue(new KeyBind(32, KeyBindType.Press)));
             _config.SubMenu("Combo")
-    .AddItem(new MenuItem("TheLine", "涓夊奖杩炴嫑").SetValue(new KeyBind("T".ToCharArray()[0], KeyBindType.Press)));
-            _config.SubMenu("Combo").AddItem(new MenuItem("RbackC", "R鍥瀨")).SetValue(false);
-            _config.SubMenu("Combo").AddItem(new MenuItem("RbackL", "涓夊奖杩炴嫑R鍥瀨")).SetValue(false);
+    .AddItem(new MenuItem("TheLine", "三影连招").SetValue(new KeyBind("T".ToCharArray()[0], KeyBindType.Press)));
+            _config.SubMenu("Combo").AddItem(new MenuItem("RbackC", "R回")).SetValue(false);
+            _config.SubMenu("Combo").AddItem(new MenuItem("RbackL", "三影连招R回")).SetValue(false);
 
             //Harass
-            _config.AddSubMenu(new Menu("楠氭壈", "Harass"));
-            _config.SubMenu("Harass").AddItem(new MenuItem("longhar", "楠氭壈(閿佸畾)").SetValue(new KeyBind("U".ToCharArray()[0], KeyBindType.Toggle)));
-            _config.SubMenu("Harass").AddItem(new MenuItem("UseItemsharass", "浣跨敤鎻愪簹椹壒/涔濆ご铔噟")).SetValue(true);
-            _config.SubMenu("Harass").AddItem(new MenuItem("UseWH", "浣跨敤W")).SetValue(true);
+            _config.AddSubMenu(new Menu("骚扰", "Harass"));
+            _config.SubMenu("Harass").AddItem(new MenuItem("longhar", "骚扰(锁定)").SetValue(new KeyBind("U".ToCharArray()[0], KeyBindType.Toggle)));
+            _config.SubMenu("Harass").AddItem(new MenuItem("UseItemsharass", "使用提亚马特/九头蛇")).SetValue(true);
+            _config.SubMenu("Harass").AddItem(new MenuItem("UseWH", "使用W")).SetValue(true);
             _config.SubMenu("Harass")
                 .AddItem(
-                    new MenuItem("ActiveHarass", "楠氭壈").SetValue(new KeyBind("C".ToCharArray()[0], KeyBindType.Press)));
+                    new MenuItem("ActiveHarass", "骚扰").SetValue(new KeyBind("C".ToCharArray()[0], KeyBindType.Press)));
 
             //items
-            _config.AddSubMenu(new Menu("鐗╁搧", "items"));
+            _config.AddSubMenu(new Menu("物品", "items"));
             _config.SubMenu("items").AddSubMenu(new Menu("Offensive", "Offensive"));
-            _config.SubMenu("items").SubMenu("Offensive").AddItem(new MenuItem("Youmuu", "浣跨敤骞芥ⅵ")).SetValue(true);
-            _config.SubMenu("items").SubMenu("Offensive").AddItem(new MenuItem("Tiamat", "浣跨敤鎻愪簹椹壒")).SetValue(true);
-            _config.SubMenu("items").SubMenu("Offensive").AddItem(new MenuItem("Hydra", "浣跨敤涔濆ご铔噟")).SetValue(true);
-            _config.SubMenu("items").SubMenu("Offensive").AddItem(new MenuItem("Bilge", "浣跨敤灏忓集鍒€")).SetValue(true);
+            _config.SubMenu("items").SubMenu("Offensive").AddItem(new MenuItem("Youmuu", "使用幽梦")).SetValue(true);
+            _config.SubMenu("items").SubMenu("Offensive").AddItem(new MenuItem("Tiamat", "使用提亚马特")).SetValue(true);
+            _config.SubMenu("items").SubMenu("Offensive").AddItem(new MenuItem("Hydra", "使用九头蛇")).SetValue(true);
+            _config.SubMenu("items").SubMenu("Offensive").AddItem(new MenuItem("Bilge", "使用小弯刀")).SetValue(true);
             _config.SubMenu("items")
                 .SubMenu("Offensive")
-                .AddItem(new MenuItem("BilgeEnemyhp", "鏁屼汉Hp <").SetValue(new Slider(85, 1, 100)));
+                .AddItem(new MenuItem("BilgeEnemyhp", "敌人Hp <").SetValue(new Slider(85, 1, 100)));
             _config.SubMenu("items")
                 .SubMenu("Offensive")
-                .AddItem(new MenuItem("Bilgemyhp", "鑷繁Hp < ").SetValue(new Slider(85, 1, 100)));
-            _config.SubMenu("items").SubMenu("Offensive").AddItem(new MenuItem("Blade", "浣跨敤灏忓集鍒€")).SetValue(true);
+                .AddItem(new MenuItem("Bilgemyhp", "自己Hp < ").SetValue(new Slider(85, 1, 100)));
+            _config.SubMenu("items").SubMenu("Offensive").AddItem(new MenuItem("Blade", "使用小弯刀")).SetValue(true);
             _config.SubMenu("items")
                 .SubMenu("Offensive")
-                .AddItem(new MenuItem("BladeEnemyhp", "鏁屼汉Hp <").SetValue(new Slider(85, 1, 100)));
+                .AddItem(new MenuItem("BladeEnemyhp", "敌人Hp <").SetValue(new Slider(85, 1, 100)));
             _config.SubMenu("items")
                 .SubMenu("Offensive")
-                .AddItem(new MenuItem("Blademyhp", "鑷繁Hp <").SetValue(new Slider(85, 1, 100)));
-            _config.SubMenu("items").AddSubMenu(new Menu("闃叉", "Deffensive"));
+                .AddItem(new MenuItem("Blademyhp", "自己Hp <").SetValue(new Slider(85, 1, 100)));
+            _config.SubMenu("items").AddSubMenu(new Menu("防止", "Deffensive"));
             _config.SubMenu("items")
                 .SubMenu("Deffensive")
-                .AddItem(new MenuItem("Omen", "浣跨敤鍏伴】"))
+                .AddItem(new MenuItem("Omen", "使用兰顿"))
                 .SetValue(true);
             _config.SubMenu("items")
                 .SubMenu("Deffensive")
-                .AddItem(new MenuItem("Omenenemys", "鏁屼汉>").SetValue(new Slider(2, 1, 5)));
+                .AddItem(new MenuItem("Omenenemys", "敌人>").SetValue(new Slider(2, 1, 5)));
             _config.SubMenu("items")
                 .SubMenu("Deffensive")
-                .AddItem(new MenuItem("lotis", "浣跨敤楦熺浘"))
+                .AddItem(new MenuItem("lotis", "使用鸟盾"))
                 .SetValue(true);
             _config.SubMenu("items")
                 .SubMenu("Deffensive")
-                .AddItem(new MenuItem("lotisminhp", "闃熷弸Hp<").SetValue(new Slider(35, 1, 100)));
+                .AddItem(new MenuItem("lotisminhp", "队友Hp<").SetValue(new Slider(35, 1, 100)));
 
             //Farm
-            _config.AddSubMenu(new Menu("娓呯嚎", "Farm"));
-            _config.SubMenu("Farm").AddSubMenu(new Menu("娓呯嚎", "LaneFarm"));
+            _config.AddSubMenu(new Menu("清线", "Farm"));
+            _config.SubMenu("Farm").AddSubMenu(new Menu("清线", "LaneFarm"));
             _config.SubMenu("Farm")
                 .SubMenu("LaneFarm")
-                .AddItem(new MenuItem("UseItemslane", "浣跨敤鎻愪簹椹壒/涔濆ご铔噟"))
+                .AddItem(new MenuItem("UseItemslane", "使用提亚马特/九头蛇"))
                 .SetValue(true);
-            _config.SubMenu("Farm").SubMenu("LaneFarm").AddItem(new MenuItem("UseQL", "Q娓呯嚎")).SetValue(true);
-            _config.SubMenu("Farm").SubMenu("LaneFarm").AddItem(new MenuItem("UseEL", "E娓呯嚎")).SetValue(true);
+            _config.SubMenu("Farm").SubMenu("LaneFarm").AddItem(new MenuItem("UseQL", "Q清线")).SetValue(true);
+            _config.SubMenu("Farm").SubMenu("LaneFarm").AddItem(new MenuItem("UseEL", "E清线")).SetValue(true);
             _config.SubMenu("Farm")
                 .SubMenu("LaneFarm")
-                .AddItem(new MenuItem("Energylane", "鑳介噺>").SetValue(new Slider(45, 1, 100)));
+                .AddItem(new MenuItem("Energylane", "能量>").SetValue(new Slider(45, 1, 100)));
             _config.SubMenu("Farm")
                 .SubMenu("LaneFarm")
                 .AddItem(
-                    new MenuItem("Activelane", "娓呯嚎").SetValue(new KeyBind("V".ToCharArray()[0], KeyBindType.Press)));
+                    new MenuItem("Activelane", "清线").SetValue(new KeyBind("V".ToCharArray()[0], KeyBindType.Press)));
 
-            _config.SubMenu("Farm").AddSubMenu(new Menu("琛ュ叺", "LastHit"));
-            _config.SubMenu("Farm").SubMenu("LastHit").AddItem(new MenuItem("UseQLH", "Q琛ュ叺")).SetValue(true);
-            _config.SubMenu("Farm").SubMenu("LastHit").AddItem(new MenuItem("UseELH", "E琛ュ叺")).SetValue(true);
+            _config.SubMenu("Farm").AddSubMenu(new Menu("补兵", "LastHit"));
+            _config.SubMenu("Farm").SubMenu("LastHit").AddItem(new MenuItem("UseQLH", "Q补兵")).SetValue(true);
+            _config.SubMenu("Farm").SubMenu("LastHit").AddItem(new MenuItem("UseELH", "E补兵")).SetValue(true);
             _config.SubMenu("Farm")
                 .SubMenu("LastHit")
-                .AddItem(new MenuItem("Energylast", "鑳介噺 >").SetValue(new Slider(85, 1, 100)));
+                .AddItem(new MenuItem("Energylast", "能量 >").SetValue(new Slider(85, 1, 100)));
             _config.SubMenu("Farm")
                 .SubMenu("LastHit")
                 .AddItem(
-                    new MenuItem("ActiveLast", "琛ュ叺").SetValue(new KeyBind("X".ToCharArray()[0], KeyBindType.Press)));
+                    new MenuItem("ActiveLast", "补兵").SetValue(new KeyBind("X".ToCharArray()[0], KeyBindType.Press)));
 
-            _config.SubMenu("Farm").AddSubMenu(new Menu("娓呴噹", "Jungle"));
+            _config.SubMenu("Farm").AddSubMenu(new Menu("清野", "Jungle"));
             _config.SubMenu("Farm")
                 .SubMenu("Jungle")
-                .AddItem(new MenuItem("UseItemsjungle", "浣跨敤鎻愪簹椹壒/涔濆ご铔噟"))
+                .AddItem(new MenuItem("UseItemsjungle", "使用提亚马特/九头蛇"))
                 .SetValue(true);
-            _config.SubMenu("Farm").SubMenu("Jungle").AddItem(new MenuItem("UseQJ", "Q娓呴噹")).SetValue(true);
-            _config.SubMenu("Farm").SubMenu("Jungle").AddItem(new MenuItem("UseWJ", "W娓呴噹")).SetValue(true);
-            _config.SubMenu("Farm").SubMenu("Jungle").AddItem(new MenuItem("UseEJ", "E娓呴噹")).SetValue(true);
+            _config.SubMenu("Farm").SubMenu("Jungle").AddItem(new MenuItem("UseQJ", "Q清野")).SetValue(true);
+            _config.SubMenu("Farm").SubMenu("Jungle").AddItem(new MenuItem("UseWJ", "W清野")).SetValue(true);
+            _config.SubMenu("Farm").SubMenu("Jungle").AddItem(new MenuItem("UseEJ", "E清野")).SetValue(true);
             _config.SubMenu("Farm")
                 .SubMenu("Jungle")
-                .AddItem(new MenuItem("Energyjungle", "鑳介噺>").SetValue(new Slider(85, 1, 100)));
+                .AddItem(new MenuItem("Energyjungle", "能量>").SetValue(new Slider(85, 1, 100)));
             _config.SubMenu("Farm")
                 .SubMenu("Jungle")
                 .AddItem(
-                    new MenuItem("Activejungle", "娓呴噹").SetValue(new KeyBind("V".ToCharArray()[0], KeyBindType.Press)));
+                    new MenuItem("Activejungle", "清野").SetValue(new KeyBind("V".ToCharArray()[0], KeyBindType.Press)));
 
             //Misc
-            _config.AddSubMenu(new Menu("鏉傞」", "Misc"));
-            _config.SubMenu("Misc").AddItem(new MenuItem("UseIgnitekill", "浣跨敤鐐圭噧鎶㈠ご")).SetValue(true);
-            _config.SubMenu("Misc").AddItem(new MenuItem("UseQM", "浣跨敤Q鎶㈠ご")).SetValue(true);
-            _config.SubMenu("Misc").AddItem(new MenuItem("UseEM", "浣跨敤E鎶㈠ご")).SetValue(true);
-             _config.SubMenu("Misc").AddItem(new MenuItem("AutoE", "鑷姩E")).SetValue(true);
+            _config.AddSubMenu(new Menu("杂项", "Misc"));
+            _config.SubMenu("Misc").AddItem(new MenuItem("UseIgnitekill", "使用点燃抢头")).SetValue(true);
+            _config.SubMenu("Misc").AddItem(new MenuItem("UseQM", "使用Q抢头")).SetValue(true);
+            _config.SubMenu("Misc").AddItem(new MenuItem("UseEM", "使用E抢头")).SetValue(true);
+             _config.SubMenu("Misc").AddItem(new MenuItem("AutoE", "自动E")).SetValue(true);
 
             //Drawings
-            _config.AddSubMenu(new Menu("鏄剧ず", "Drawings"));
-            _config.SubMenu("Drawings").AddItem(new MenuItem("DrawQ", "Q鑼冨洿")).SetValue(true);
-            _config.SubMenu("Drawings").AddItem(new MenuItem("DrawE", "E鑼冨洿")).SetValue(true);
-            _config.SubMenu("Drawings").AddItem(new MenuItem("DrawQW", "楠氭壈鑼冨洿")).SetValue(true);
-            _config.SubMenu("Drawings").AddItem(new MenuItem("DrawR", "R鑼冨洿")).SetValue(true);
-            _config.SubMenu("Drawings").AddItem(new MenuItem("shadowd", "褰卞瓙")).SetValue(true);
-            _config.SubMenu("Drawings").AddItem(new MenuItem("damagetest", "浼ゅ")).SetValue(true);
-            _config.SubMenu("Drawings").AddItem(new MenuItem("CircleLag", "绾垮湀").SetValue(true));
+            _config.AddSubMenu(new Menu("显示", "Drawings"));
+            _config.SubMenu("Drawings").AddItem(new MenuItem("DrawQ", "Q范围")).SetValue(true);
+            _config.SubMenu("Drawings").AddItem(new MenuItem("DrawE", "E范围")).SetValue(true);
+            _config.SubMenu("Drawings").AddItem(new MenuItem("DrawQW", "骚扰范围")).SetValue(true);
+            _config.SubMenu("Drawings").AddItem(new MenuItem("DrawR", "R范围")).SetValue(true);
+            _config.SubMenu("Drawings").AddItem(new MenuItem("shadowd", "影子")).SetValue(true);
+            _config.SubMenu("Drawings").AddItem(new MenuItem("damagetest", "伤害")).SetValue(true);
+            _config.SubMenu("Drawings").AddItem(new MenuItem("CircleLag", "线圈").SetValue(true));
             _config.SubMenu("Drawings")
-                .AddItem(new MenuItem("CircleQuality", "璐ㄩ噺").SetValue(new Slider(100, 100, 10)));
+                .AddItem(new MenuItem("CircleQuality", "质量").SetValue(new Slider(100, 100, 10)));
             _config.SubMenu("Drawings")
-                .AddItem(new MenuItem("CircleThickness", "鍘氬害").SetValue(new Slider(1, 10, 1)));
+                .AddItem(new MenuItem("CircleThickness", "厚度").SetValue(new Slider(1, 10, 1)));
             _config.AddToMainMenu();
-			
-            _config.AddSubMenu(new Menu("L#涓枃绀惧尯", "AD"));
-            _config.SubMenu("AD").AddItem(new MenuItem("wangzhan", "www.loll35.com"));
-            _config.SubMenu("AD").AddItem(new MenuItem("qunhao2", "姹夊寲缇わ細397983217"));
-			
             Game.PrintChat("<font color='#881df2'>Zed by Diabaths & jackisback</font> Loaded.");
             Game.PrintChat("<font color='#f2e11d'>if u liked this assembly support us on devwars</font>");
             Game.PrintChat("<font color='#f2881d'>if you wanna help me to pay my internet bills^^ paypal= bulut@live.co.uk</font>");
@@ -260,7 +255,7 @@ namespace Zed
             if (_config.Item("AutoE").GetValue<bool>())
             {
                 if (ObjectManager.Get<Obj_AI_Hero>().Count(hero =>
-                    hero.IsValidTarget() && (hero.Distance(ObjectManager.Player.ServerPosition) <= _e.Range ||
+                    hero.IsValidTarget() && (hero.Distance(ObjectManager.Player.ServerPosition) <= _e.Range 
                                              (WShadow != null && hero.Distance(WShadow.ServerPosition) <= _e.Range))) > 0)
                     _e.Cast();
             }
@@ -372,7 +367,7 @@ namespace Zed
                 _player.IssueOrder(GameObjectOrder.AttackUnit, target);
             }
 
-            if ((linepos.X == 0 && linepos.Y == 0) || !_r.IsReady())
+            if ((linepos.X == 0 && linepos.Y == 0)  !_r.IsReady())
             {
                 return;
             }
@@ -438,7 +433,7 @@ namespace Zed
             }
 
             if (target.IsValidTarget() && !_w.IsReady() && _q.IsReady() &&
-                           (target.Distance(_player.Position) < 900 || target.Distance(WShadow.ServerPosition) < 900))
+                           (target.Distance(_player.Position) < 900  target.Distance(WShadow.ServerPosition) < 900))
             {
                 CastQ(target);
             }
@@ -601,16 +596,16 @@ namespace Zed
             var ilotis = _config.Item("lotis").GetValue<bool>();
             var iYoumuu = _config.Item("Youmuu").GetValue<bool>();
             //var ihp = _config.Item("Hppotion").GetValue<bool>();
-            // var ihp浣跨敤= _player.Health <= (_player.MaxHealth * (_config.Item("Hppotionuse").GetValue<Slider>().Value) / 100);
+            // var ihp使用= _player.Health <= (_player.MaxHealth * (_config.Item("Hppotionuse").GetValue<Slider>().Value) / 100);
             //var imp = _config.Item("Mppotion").GetValue<bool>();
-            //var imp浣跨敤= _player.Health <= (_player.MaxHealth * (_config.Item("Mppotionuse").GetValue<Slider>().Value) / 100);
+            //var imp使用= _player.Health <= (_player.MaxHealth * (_config.Item("Mppotionuse").GetValue<Slider>().Value) / 100);
 
-            if (_player.Distance(target) <= 450 && iBilge && (iBilgeEnemyhp || iBilgemyhp) && _bilge.IsReady())
+            if (_player.Distance(target) <= 450 && iBilge && (iBilgeEnemyhp  iBilgemyhp) && _bilge.IsReady())
             {
                 _bilge.Cast(target);
 
             }
-            if (_player.Distance(target) <= 450 && iBlade && (iBladeEnemyhp || iBlademyhp) && _blade.IsReady())
+            if (_player.Distance(target) <= 450 && iBlade && (iBladeEnemyhp  iBlademyhp) && _blade.IsReady())
             {
                 _blade.Cast(target);
 
@@ -632,7 +627,7 @@ namespace Zed
             }
             if (ilotis)
             {
-                foreach (var hero in ObjectManager.Get<Obj_AI_Hero>().Where(hero => hero.IsAlly || hero.IsMe))
+                foreach (var hero in ObjectManager.Get<Obj_AI_Hero>().Where(hero => hero.IsAlly  hero.IsMe))
                 {
                     if (hero.Health <= (hero.MaxHealth * (_config.Item("lotisminhp").GetValue<Slider>().Value) / 100) &&
                         hero.Distance(_player.ServerPosition) <= _lotis.Range && _lotis.IsReady())
@@ -724,7 +719,7 @@ namespace Zed
                 .Count(
                     hero =>
                         hero.IsValidTarget() &&
-                        (hero.Distance(ObjectManager.Player.ServerPosition) <= _e.Range ||
+                        (hero.Distance(ObjectManager.Player.ServerPosition) <= _e.Range 
                          (WShadow != null && hero.Distance(WShadow.ServerPosition) <= _e.Range))) > 0)
                 _e.Cast();
         }
@@ -770,7 +765,7 @@ namespace Zed
             if (_e.IsReady() && _config.Item("UseEM").GetValue<bool>())
             {
                 var t = SimpleTs.GetTarget(_e.Range, SimpleTs.DamageType.Physical);
-                if (_e.GetDamage(t) > t.Health && (_player.Distance(t) <= _e.Range || WShadow.Distance(t) <= _e.Range))
+                if (_e.GetDamage(t) > t.Health && (_player.Distance(t) <= _e.Range  WShadow.Distance(t) <= _e.Range))
                 {
                     _e.Cast();
                 }

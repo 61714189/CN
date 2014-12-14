@@ -1,1 +1,0 @@
-            Config = menu.AddSubMenu(new Menu("L#中文社区-眼位计时器|", "Ward Tracker"));

@@ -1,0 +1,6 @@
+C:\Users\Administrator\Desktop\123\Sharp合集\【L#中文社区】亚索V2\obj\Release\【L#中文社区】亚索V2.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\123\Sharp合集\【L#中文社区】亚索V2\obj\Release\YasuoSharpV2.Properties.Resources.resources
+C:\Users\Administrator\Desktop\123\Sharp合集\【L#中文社区】亚索V2\obj\Release\【L#中文社区】亚索V2.csproj.GenerateResource.Cache
+C:\CN\独立脚本\【L#中文社区】亚索\obj\Release\【L#中文社区】亚索V2.csprojResolveAssemblyReference.cache
+C:\CN\独立脚本\【L#中文社区】亚索\obj\Release\YasuoSharpV2.Properties.Resources.resources
+C:\CN\独立脚本\【L#中文社区】亚索\obj\Release\【L#中文社区】亚索V2.csproj.GenerateResource.Cache

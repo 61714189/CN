@@ -75,10 +75,10 @@ namespace Syndra
             Config = new Menu(ChampionName, ChampionName, true);
 
             //Orbwalker submenu
-            Config.AddSubMenu(new Menu("璧扮爫", "Orbwalking"));
+            Config.AddSubMenu(new Menu("走砍", "Orbwalking"));
 
             //Add the target selector to the menu as submenu.
-            var targetSelectorMenu = new Menu("鐩爣閫夋嫨", "Target Selector");
+            var targetSelectorMenu = new Menu("目标选择", "Target Selector");
             SimpleTs.AddToMenu(targetSelectorMenu);
             Config.AddSubMenu(targetSelectorMenu);
 
@@ -86,73 +86,73 @@ namespace Syndra
             Orbwalker = new Orbwalking.Orbwalker(Config.SubMenu("Orbwalking"));
 
             //Combo menu:
-            Config.AddSubMenu(new Menu("杩炴嫑", "Combo"));
-            Config.SubMenu("Combo").AddItem(new MenuItem("UseQCombo", "浣跨敤Q").SetValue(true));
-            Config.SubMenu("Combo").AddItem(new MenuItem("UseWCombo", "浣跨敤W").SetValue(true));
-            Config.SubMenu("Combo").AddItem(new MenuItem("UseECombo", "浣跨敤E").SetValue(true));
-            Config.SubMenu("Combo").AddItem(new MenuItem("UseQECombo", "浣跨敤QE").SetValue(true));
-            Config.SubMenu("Combo").AddItem(new MenuItem("UseRCombo", "浣跨敤R").SetValue(true));
-            Config.SubMenu("Combo").AddItem(new MenuItem("UseIgniteCombo", "浣跨敤鐐圭噧").SetValue(true));
+            Config.AddSubMenu(new Menu("连招", "Combo"));
+            Config.SubMenu("Combo").AddItem(new MenuItem("UseQCombo", "使用Q").SetValue(true));
+            Config.SubMenu("Combo").AddItem(new MenuItem("UseWCombo", "使用W").SetValue(true));
+            Config.SubMenu("Combo").AddItem(new MenuItem("UseECombo", "使用E").SetValue(true));
+            Config.SubMenu("Combo").AddItem(new MenuItem("UseQECombo", "使用QE").SetValue(true));
+            Config.SubMenu("Combo").AddItem(new MenuItem("UseRCombo", "使用R").SetValue(true));
+            Config.SubMenu("Combo").AddItem(new MenuItem("UseIgniteCombo", "使用点燃").SetValue(true));
             Config.SubMenu("Combo")
                 .AddItem(
-                    new MenuItem("ComboActive", "杩炴嫑").SetValue(
+                    new MenuItem("ComboActive", "连招").SetValue(
                         new KeyBind(Config.Item("Orbwalk").GetValue<KeyBind>().Key, KeyBindType.Press)));
 
             //Harass menu:
-            Config.AddSubMenu(new Menu("楠氭壈", "Harass"));
-            Config.SubMenu("Harass").AddItem(new MenuItem("UseQHarass", "浣跨敤Q").SetValue(true));
-            Config.SubMenu("Harass").AddItem(new MenuItem("UseWHarass", "浣跨敤W").SetValue(false));
-            Config.SubMenu("Harass").AddItem(new MenuItem("UseEHarass", "浣跨敤E").SetValue(false));
-            Config.SubMenu("Harass").AddItem(new MenuItem("UseQEHarass", "浣跨敤QE").SetValue(false));
+            Config.AddSubMenu(new Menu("骚扰", "Harass"));
+            Config.SubMenu("Harass").AddItem(new MenuItem("UseQHarass", "使用Q").SetValue(true));
+            Config.SubMenu("Harass").AddItem(new MenuItem("UseWHarass", "使用W").SetValue(false));
+            Config.SubMenu("Harass").AddItem(new MenuItem("UseEHarass", "使用E").SetValue(false));
+            Config.SubMenu("Harass").AddItem(new MenuItem("UseQEHarass", "使用QE").SetValue(false));
             Config.SubMenu("Harass")
                 .AddItem(
-                    new MenuItem("HarassActive", "楠氭壈").SetValue(
+                    new MenuItem("HarassActive", "骚扰").SetValue(
                         new KeyBind(Config.Item("Farm").GetValue<KeyBind>().Key, KeyBindType.Press)));
             Config.SubMenu("Harass")
                 .AddItem(
-                    new MenuItem("HarassActiveT", "楠氭壈 (閿佸畾)").SetValue(new KeyBind("Y".ToCharArray()[0],
+                    new MenuItem("HarassActiveT", "骚扰 (锁定)").SetValue(new KeyBind("Y".ToCharArray()[0],
                         KeyBindType.Toggle)));
 
             //Farming menu:
-            Config.AddSubMenu(new Menu("琛ュ叺", "Farm"));
-            Config.SubMenu("Farm").AddItem(new MenuItem("UseQFarm", "浣跨敤Q").SetValue(new StringList(new[] { "Freeze", "LaneClear", "Both", "No" }, 2)));
+            Config.AddSubMenu(new Menu("补兵", "Farm"));
+            Config.SubMenu("Farm").AddItem(new MenuItem("UseQFarm", "使用Q").SetValue(new StringList(new[] { "Freeze", "LaneClear", "Both", "No" }, 2)));
             Config.SubMenu("Farm")
                 .AddItem(
-                    new MenuItem("UseWFarm", "浣跨敤W").SetValue(
+                    new MenuItem("UseWFarm", "使用W").SetValue(
                         new StringList(new[] { "Freeze", "LaneClear", "Both", "No" }, 1)));
             Config.SubMenu("Farm")
                 .AddItem(
-                    new MenuItem("UseEFarm", "浣跨敤E").SetValue(
+                    new MenuItem("UseEFarm", "使用E").SetValue(
                         new StringList(new[] { "Freeze", "LaneClear", "Both", "No" }, 3)));
             Config.SubMenu("Farm")
                 .AddItem(
-                    new MenuItem("FreezeActive", "鎺х嚎").SetValue(
+                    new MenuItem("FreezeActive", "控线").SetValue(
                         new KeyBind(Config.Item("Farm").GetValue<KeyBind>().Key, KeyBindType.Press)));
             Config.SubMenu("Farm")
                 .AddItem(
-                    new MenuItem("LaneClearActive", "娓呯嚎").SetValue(
+                    new MenuItem("LaneClearActive", "清线").SetValue(
                         new KeyBind(Config.Item("LaneClear").GetValue<KeyBind>().Key, KeyBindType.Press)));
 
             //JungleFarm menu:
-            Config.AddSubMenu(new Menu("娓呴噹", "JungleFarm"));
-            Config.SubMenu("JungleFarm").AddItem(new MenuItem("UseQJFarm", "浣跨敤Q").SetValue(true));
-            Config.SubMenu("JungleFarm").AddItem(new MenuItem("UseWJFarm", "浣跨敤W").SetValue(true));
-            Config.SubMenu("JungleFarm").AddItem(new MenuItem("UseEJFarm", "浣跨敤E").SetValue(true));
+            Config.AddSubMenu(new Menu("清野", "JungleFarm"));
+            Config.SubMenu("JungleFarm").AddItem(new MenuItem("UseQJFarm", "使用Q").SetValue(true));
+            Config.SubMenu("JungleFarm").AddItem(new MenuItem("UseWJFarm", "使用W").SetValue(true));
+            Config.SubMenu("JungleFarm").AddItem(new MenuItem("UseEJFarm", "使用E").SetValue(true));
             Config.SubMenu("JungleFarm")
                 .AddItem(
-                    new MenuItem("JungleFarmActive", "娓呴噹").SetValue(
+                    new MenuItem("JungleFarmActive", "清野").SetValue(
                         new KeyBind(Config.Item("LaneClear").GetValue<KeyBind>().Key, KeyBindType.Press)));
 
             //Misc
-            Config.AddSubMenu(new Menu("鏉傞」", "Misc"));
-            Config.SubMenu("Misc").AddItem(new MenuItem("InterruptSpells", "鎵撴柇").SetValue(true));
-            Config.SubMenu("Misc").AddItem(new MenuItem("UseGap", "E闃茬獊").SetValue(true));
-            Config.SubMenu("Misc").AddItem(new MenuItem("packet", "灏佸寘").SetValue(true));
+            Config.AddSubMenu(new Menu("杂项", "Misc"));
+            Config.SubMenu("Misc").AddItem(new MenuItem("InterruptSpells", "打断").SetValue(true));
+            Config.SubMenu("Misc").AddItem(new MenuItem("UseGap", "E防突").SetValue(true));
+            Config.SubMenu("Misc").AddItem(new MenuItem("packet", "封包").SetValue(true));
             Config.SubMenu("Misc")
                 .AddItem(
-                    new MenuItem("CastQE", "QE榧犳爣").SetValue(new KeyBind("T".ToCharArray()[0],
+                    new MenuItem("CastQE", "QE鼠标").SetValue(new KeyBind("T".ToCharArray()[0],
                         KeyBindType.Press)));
-            Config.SubMenu("Misc").AddSubMenu(new Menu("涓峈", "DontUlt"));
+            Config.SubMenu("Misc").AddSubMenu(new Menu("不R", "DontUlt"));
 
             foreach (var enemy in ObjectManager.Get<Obj_AI_Hero>().Where(enemy => enemy.Team != Player.Team))
                 Config.SubMenu("Misc")
@@ -160,7 +160,7 @@ namespace Syndra
                     .AddItem(new MenuItem("DontUlt" + enemy.BaseSkinName, enemy.BaseSkinName).SetValue(false));
 
             //Damage after combo:
-            var dmgAfterComboItem = new MenuItem("DamageAfterCombo", "鏄剧ず浼ゅ").SetValue(true);
+            var dmgAfterComboItem = new MenuItem("DamageAfterCombo", "显示伤害").SetValue(true);
             Utility.HpBarDamageIndicator.DamageToUnit = GetComboDamage;
             Utility.HpBarDamageIndicator.Enabled = dmgAfterComboItem.GetValue<bool>();
             dmgAfterComboItem.ValueChanged += delegate(object sender, OnValueChangeEventArgs eventArgs)
@@ -169,25 +169,21 @@ namespace Syndra
             };
 
             //Drawings menu:
-            Config.AddSubMenu(new Menu("鏄剧ず", "Drawings"));
+            Config.AddSubMenu(new Menu("显示", "Drawings"));
             Config.SubMenu("Drawings")
-                .AddItem(new MenuItem("QRange", "Q鑼冨洿").SetValue(new Circle(false, Color.FromArgb(100, 255, 0, 255))));
+                .AddItem(new MenuItem("QRange", "Q范围").SetValue(new Circle(false, Color.FromArgb(100, 255, 0, 255))));
             Config.SubMenu("Drawings")
-                .AddItem(new MenuItem("WRange", "W鑼冨洿").SetValue(new Circle(true, Color.FromArgb(100, 255, 0, 255))));
+                .AddItem(new MenuItem("WRange", "W范围").SetValue(new Circle(true, Color.FromArgb(100, 255, 0, 255))));
             Config.SubMenu("Drawings")
-                .AddItem(new MenuItem("ERange", "E鑼冨洿").SetValue(new Circle(false, Color.FromArgb(100, 255, 0, 255))));
+                .AddItem(new MenuItem("ERange", "E范围").SetValue(new Circle(false, Color.FromArgb(100, 255, 0, 255))));
             Config.SubMenu("Drawings")
-                .AddItem(new MenuItem("RRange", "R鑼冨洿").SetValue(new Circle(false, Color.FromArgb(100, 255, 0, 255))));
+                .AddItem(new MenuItem("RRange", "R范围").SetValue(new Circle(false, Color.FromArgb(100, 255, 0, 255))));
             Config.SubMenu("Drawings")
-                .AddItem(new MenuItem("QERange", "QE鑼冨洿").SetValue(new Circle(true, Color.FromArgb(100, 255, 0, 255))));
+                .AddItem(new MenuItem("QERange", "QE范围").SetValue(new Circle(true, Color.FromArgb(100, 255, 0, 255))));
             Config.SubMenu("Drawings")
                 .AddItem(dmgAfterComboItem);
             Config.AddToMainMenu();
-
-			Config.AddSubMenu(new Menu("L#涓枃绀惧尯", "AD"));
-				Config.SubMenu("AD").AddItem(new MenuItem("WANGZHAN", "www.loll35.com"));
-				Config.SubMenu("AD").AddItem(new MenuItem("qunhao", "姹夊寲缇わ細397983217"));
-		            //Add the events we are going to use:
+            //Add the events we are going to use:
             Game.OnGameUpdate += Game_OnGameUpdate;
             Obj_AI_Base.OnProcessSpellCast += Obj_AI_Hero_OnProcessSpellCast;
             Drawing.OnDraw += Drawing_OnDraw;

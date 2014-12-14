@@ -107,97 +107,91 @@ namespace KurisuNidalee
         #region Nidalee: Menu
         private void NidaMenu()
         {
-            Config = new Menu("|L#涓枃绀惧尯-濂堝痉涓絴", "nidalee", true);
+            Config = new Menu("【L#中文社区】狂野女猎手", "nidalee", true);
 
-            var nidaOrb = new Menu("璧扮爫", "orbwalker");
+            var nidaOrb = new Menu("走砍", "orbwalker");
             Orbwalker = new Orbwalking.Orbwalker(nidaOrb);
             Config.AddSubMenu(nidaOrb);
 
-            var nidaTS = new Menu("鐩爣閫夋嫨", "target selecter");
+            var nidaTS = new Menu("目标选择", "target selecter");
             SimpleTs.AddToMenu(nidaTS);
             Config.AddSubMenu(nidaTS);
 
-            var nidaKeys = new Menu("鐑敭", "keybindongs");
-            nidaKeys.AddItem(new MenuItem("usecombo", "杩炴嫑")).SetValue(new KeyBind(32, KeyBindType.Press));
-            nidaKeys.AddItem(new MenuItem("useharass", "楠氭壈")).SetValue(new KeyBind(67, KeyBindType.Press));
-            nidaKeys.AddItem(new MenuItem("usejungle", "娓呴噹")).SetValue(new KeyBind(86, KeyBindType.Press));
-            nidaKeys.AddItem(new MenuItem("useclear", "娓呯嚎")).SetValue(new KeyBind(86, KeyBindType.Press));
+            var nidaKeys = new Menu("热键", "keybindongs");
+            nidaKeys.AddItem(new MenuItem("usecombo", "连招")).SetValue(new KeyBind(32, KeyBindType.Press));
+            nidaKeys.AddItem(new MenuItem("useharass", "骚扰")).SetValue(new KeyBind(67, KeyBindType.Press));
+            nidaKeys.AddItem(new MenuItem("usejungle", "清野")).SetValue(new KeyBind(86, KeyBindType.Press));
+            nidaKeys.AddItem(new MenuItem("useclear", "清线")).SetValue(new KeyBind(86, KeyBindType.Press));
             Config.AddSubMenu(nidaKeys);
 
-            var nidaSpells = new Menu("娉曟湳", "spells");
-            nidaSpells.AddItem(new MenuItem("hitchance", "鍛戒腑鏈轰細")).SetValue(new StringList(new[] { "Low", "Medium", "High" }, 2));
-            nidaSpells.AddItem(new MenuItem("usehumanq", "浣跨敤浜哄舰鎬丵")).SetValue(true);
-            nidaSpells.AddItem(new MenuItem("usehumanw", "浣跨敤浜哄舰鎬乄")).SetValue(true);
+            var nidaSpells = new Menu("法术", "spells");
+            nidaSpells.AddItem(new MenuItem("hitchance", "命中机会")).SetValue(new StringList(new[] { "Low", "Medium", "High" }, 2));
+            nidaSpells.AddItem(new MenuItem("usehumanq", "使用人形态Q")).SetValue(true);
+            nidaSpells.AddItem(new MenuItem("usehumanw", "使用人形态W")).SetValue(true);
             nidaSpells.AddItem(new MenuItem(" ", " "));
-            nidaSpells.AddItem(new MenuItem("usecougarq", "浣跨敤璞瑰舰鎬丵")).SetValue(true);
-            nidaSpells.AddItem(new MenuItem("usecougarw", "浣跨敤璞瑰舰鎬乄")).SetValue(true);
-            nidaSpells.AddItem(new MenuItem("pouncerange", "鏈€灏忚窛绂汇劎")).SetValue(new Slider(125, 50, 300));
-            nidaSpells.AddItem(new MenuItem("usecougare", "浣跨敤璞瑰舰鎬丒")).SetValue(true);
-            nidaSpells.AddItem(new MenuItem("usecougarr", "鑷姩鍒囨崲")).SetValue(true);
+            nidaSpells.AddItem(new MenuItem("usecougarq", "使用豹形态Q")).SetValue(true);
+            nidaSpells.AddItem(new MenuItem("usecougarw", "使用豹形态W")).SetValue(true);
+            nidaSpells.AddItem(new MenuItem("pouncerange", "最小距离ㄧ")).SetValue(new Slider(125, 50, 300));
+            nidaSpells.AddItem(new MenuItem("usecougare", "使用豹形态E")).SetValue(true);
+            nidaSpells.AddItem(new MenuItem("usecougarr", "自动切换")).SetValue(true);
             Config.AddSubMenu(nidaSpells);
 
-            var nidaHeals = new Menu("浜哄舰鎬丒", "hengine");
-            nidaHeals.AddItem(new MenuItem("usedemheals", "鎵撳紑")).SetValue(true);
+            var nidaHeals = new Menu("人形态E", "hengine");
+            nidaHeals.AddItem(new MenuItem("usedemheals", "打开")).SetValue(true);
             foreach (var hero in ObjectManager.Get<Obj_AI_Hero>().Where(hero => hero.IsAlly))
             {
                 nidaHeals.AddItem(new MenuItem("heal" + hero.SkinName, hero.SkinName)).SetValue(true);
                 nidaHeals.AddItem(new MenuItem("healpct" + hero.SkinName, hero.SkinName + " heal %")).SetValue(new Slider(50));
             }
-            nidaHeals.AddItem(new MenuItem("healmanapct", "鏈€灏忔硶鍔涘€笺劎")).SetValue(new Slider(40));
+            nidaHeals.AddItem(new MenuItem("healmanapct", "最小法力值ㄧ")).SetValue(new Slider(40));
             Config.AddSubMenu(nidaHeals);
 
 
-            var nidaHarass = new Menu("楠氭壈", "harass");
-            nidaHarass.AddItem(new MenuItem("usehumanq2", "浣跨敤浜哄舰鎬丵")).SetValue(true);
-            nidaHarass.AddItem(new MenuItem("humanqpct", "鏈€灏忔硶鍔涘€笺劎")).SetValue(new Slider(70));
+            var nidaHarass = new Menu("骚扰", "harass");
+            nidaHarass.AddItem(new MenuItem("usehumanq2", "使用人形态Q")).SetValue(true);
+            nidaHarass.AddItem(new MenuItem("humanqpct", "最小法力值ㄧ")).SetValue(new Slider(70));
             Config.AddSubMenu(nidaHarass);
 
-            var nidaClear = new Menu("娓呯嚎", "laneclear");
-            nidaClear.AddItem(new MenuItem("clearhumanq", "浣跨敤浜哄舰鎬丵")).SetValue(false);
+            var nidaClear = new Menu("清线", "laneclear");
+            nidaClear.AddItem(new MenuItem("clearhumanq", "使用人形态Q")).SetValue(false);
             nidaClear.AddItem(new MenuItem(" ", " "));
-            nidaClear.AddItem(new MenuItem("clearcougarq", "浣跨敤璞瑰舰鎬丵")).SetValue(true);
-            nidaClear.AddItem(new MenuItem("clearcougarw", "浣跨敤璞瑰舰鎬乄")).SetValue(true);
-            nidaClear.AddItem(new MenuItem("clearcougare", "浣跨敤璞瑰舰鎬丒")).SetValue(true);
-            nidaClear.AddItem(new MenuItem("clearcougarr", "鑷姩鍒囨崲")).SetValue(false);
-            nidaClear.AddItem(new MenuItem("clearpct", "鏈€灏忔硶鍔涘€笺劎")).SetValue(new Slider(55));
+            nidaClear.AddItem(new MenuItem("clearcougarq", "使用豹形态Q")).SetValue(true);
+            nidaClear.AddItem(new MenuItem("clearcougarw", "使用豹形态W")).SetValue(true);
+            nidaClear.AddItem(new MenuItem("clearcougare", "使用豹形态E")).SetValue(true);
+            nidaClear.AddItem(new MenuItem("clearcougarr", "自动切换")).SetValue(false);
+            nidaClear.AddItem(new MenuItem("clearpct", "最小法力值ㄧ")).SetValue(new Slider(55));
             Config.AddSubMenu(nidaClear);
 
-            var nidaJungle = new Menu("娓呴噹", "jungleclear");
-            nidaJungle.AddItem(new MenuItem("jghumanq", "浣跨敤浜哄舰鎬丵")).SetValue(true);
-            nidaJungle.AddItem(new MenuItem("jghumanw", "浣跨敤浜哄舰鎬乄")).SetValue(true);
+            var nidaJungle = new Menu("清野", "jungleclear");
+            nidaJungle.AddItem(new MenuItem("jghumanq", "使用人形态Q")).SetValue(true);
+            nidaJungle.AddItem(new MenuItem("jghumanw", "使用人形态W")).SetValue(true);
             nidaJungle.AddItem(new MenuItem(" ", " "));
-            nidaJungle.AddItem(new MenuItem("jgcougarq", "浣跨敤璞瑰舰鎬丵")).SetValue(true);
-            nidaJungle.AddItem(new MenuItem("jgcougarw", "浣跨敤璞瑰舰鎬乄")).SetValue(true);
-            nidaJungle.AddItem(new MenuItem("jgcougare", "浣跨敤璞瑰舰鎬丒")).SetValue(true);
-            nidaJungle.AddItem(new MenuItem("jgcougarr", "鑷姩鍒囨崲")).SetValue(true);
-            nidaJungle.AddItem(new MenuItem("jgrpct", "鏈€灏忔硶鍔涘€笺劎")).SetValue(new Slider(55, 0, 100));
+            nidaJungle.AddItem(new MenuItem("jgcougarq", "使用豹形态Q")).SetValue(true);
+            nidaJungle.AddItem(new MenuItem("jgcougarw", "使用豹形态W")).SetValue(true);
+            nidaJungle.AddItem(new MenuItem("jgcougare", "使用豹形态E")).SetValue(true);
+            nidaJungle.AddItem(new MenuItem("jgcougarr", "自动切换")).SetValue(true);
+            nidaJungle.AddItem(new MenuItem("jgrpct", "最小法力值ㄧ")).SetValue(new Slider(55, 0, 100));
             Config.AddSubMenu(nidaJungle);
 
-            var nidaMisc = new Menu("鏉傞」", "nidamisc");
-            nidaMisc.AddItem(new MenuItem("usedfg", "浣跨敤鍐ョ伀")).SetValue(true);
-            nidaMisc.AddItem(new MenuItem("usebork", "浣跨敤鐮磋触")).SetValue(true);
-            nidaMisc.AddItem(new MenuItem("usebw", "浣跨敤灏忓集鍒€")).SetValue(true);
-            nidaMisc.AddItem(new MenuItem("useclaim", "浣跨敤鍐伴湝濂崇殗")).SetValue(true);
-            nidaMisc.AddItem(new MenuItem("useks", "鎶㈠ご")).SetValue(true);
-            nidaMisc.AddItem(new MenuItem("swfks", "浜鸿惫鍒囨崲鎶㈠ご")).SetValue(false);
+            var nidaMisc = new Menu("杂项", "nidamisc");
+            nidaMisc.AddItem(new MenuItem("usedfg", "使用冥火")).SetValue(true);
+            nidaMisc.AddItem(new MenuItem("usebork", "使用破败")).SetValue(true);
+            nidaMisc.AddItem(new MenuItem("usebw", "使用小弯刀")).SetValue(true);
+            nidaMisc.AddItem(new MenuItem("useclaim", "使用冰霜女皇")).SetValue(true);
+            nidaMisc.AddItem(new MenuItem("useks", "抢头")).SetValue(true);
+            nidaMisc.AddItem(new MenuItem("swfks", "人豹切换抢头")).SetValue(false);
             Config.AddSubMenu(nidaMisc);
 
-            var nidaD = new Menu("鏄剧ず", "drawings");
-            nidaD.AddItem(new MenuItem("drawQ", "Q鑼冨洿")).SetValue(new Circle(true, Color.FromArgb(150, Color.White)));
-            nidaD.AddItem(new MenuItem("drawW", "W鑼冨洿")).SetValue(new Circle(true, Color.FromArgb(150, Color.White)));
-            nidaD.AddItem(new MenuItem("drawE", "E鑼冨洿")).SetValue(new Circle(true, Color.FromArgb(150, Color.White)));
-            nidaD.AddItem(new MenuItem("drawcds", "鏄剧ず鍐峰嵈")).SetValue(true);
+            var nidaD = new Menu("显示", "drawings");
+            nidaD.AddItem(new MenuItem("drawQ", "Q范围")).SetValue(new Circle(true, Color.FromArgb(150, Color.White)));
+            nidaD.AddItem(new MenuItem("drawW", "W范围")).SetValue(new Circle(true, Color.FromArgb(150, Color.White)));
+            nidaD.AddItem(new MenuItem("drawE", "E范围")).SetValue(new Circle(true, Color.FromArgb(150, Color.White)));
+            nidaD.AddItem(new MenuItem("drawcds", "显示冷却")).SetValue(true);
             Config.AddSubMenu(nidaD);
 
-            Config.AddItem(new MenuItem("useignote", "浣跨敤鐐圭噧")).SetValue(true);
-            Config.AddItem(new MenuItem("usepackets", "浣跨敤灏佸寘")).SetValue(true);
+            Config.AddItem(new MenuItem("useignote", "使用点燃")).SetValue(true);
+            Config.AddItem(new MenuItem("usepackets", "使用封包")).SetValue(true);
             Config.AddToMainMenu();
-			
-			
-			Config.AddSubMenu(new Menu("L#涓枃绀惧尯", "AD"));
-				Config.SubMenu("AD").AddItem(new MenuItem("wangzhan", "www.loll35.com"));
-				Config.SubMenu("AD").AddItem(new MenuItem("qunhao2", "缇ゅ彿锛?397983217"));
-
             Game.PrintChat("<font color=\"#FFAF4D\">[</font><font color=\"#FFA333\">Nidalee</font><font color=\"#FFAF4D\">]</font><font color=\"#FF8C00\"> - <u>the Bestial Huntress Rev106</u>  </font>- Kurisu");
 
         }

@@ -51,30 +51,26 @@ namespace EasyEzreal
 
         protected override void InitializeMenu()
         {
-            Menu.AddSubMenu(new Menu("杩炴嫑", "Combo"));
-            Menu.SubMenu("Combo").AddItem(new MenuItem("Combo_q", "浣跨敤Q").SetValue(true));
-            Menu.SubMenu("Combo").AddItem(new MenuItem("Combo_w", "浣跨敤W").SetValue(true));
+            Menu.AddSubMenu(new Menu("连招", "Combo"));
+            Menu.SubMenu("Combo").AddItem(new MenuItem("Combo_q", "使用Q").SetValue(true));
+            Menu.SubMenu("Combo").AddItem(new MenuItem("Combo_w", "使用W").SetValue(true));
 
-            Menu.AddSubMenu(new Menu("楠氭壈", "Harass"));
-            Menu.SubMenu("Harass").AddItem(new MenuItem("Harass_q", "浣跨敤Q").SetValue(true));
-            Menu.SubMenu("Harass").AddItem(new MenuItem("Harass_w", "浣跨敤W").SetValue(false));
+            Menu.AddSubMenu(new Menu("骚扰", "Harass"));
+            Menu.SubMenu("Harass").AddItem(new MenuItem("Harass_q", "使用Q").SetValue(true));
+            Menu.SubMenu("Harass").AddItem(new MenuItem("Harass_w", "使用W").SetValue(false));
 
-            Menu.AddSubMenu(new Menu("鑷姩", "Auto"));
-            Menu.SubMenu("Auto").AddItem(new MenuItem("Auto_q", "鑷姩Q").SetValue(true));
-            Menu.SubMenu("Auto").AddItem(new MenuItem("Auto_w", "鑷姩W").SetValue(false));
-            Menu.SubMenu("Auto").AddItem(new MenuItem("Auto_r", "鑷姩R").SetValue(true));
-            Menu.SubMenu("Auto").AddItem(new MenuItem("Auto_minrange", "R min").SetValue(new Slider(1050, 0, 1500)));
-            Menu.SubMenu("Auto").AddItem(new MenuItem("Auto_maxrange", "R max").SetValue(new Slider(3000, 1500, 5000)));
-            Menu.SubMenu("Auto").AddItem(new MenuItem("Auto_manaE", "鐣欒摑E").SetValue(true));
+            Menu.AddSubMenu(new Menu("自动", "Auto"));
+            Menu.SubMenu("Auto").AddItem(new MenuItem("Auto_q", "自动Q").SetValue(true));
+            Menu.SubMenu("Auto").AddItem(new MenuItem("Auto_w", "自动W").SetValue(false));
+            Menu.SubMenu("Auto").AddItem(new MenuItem("Auto_r", "自动R").SetValue(true));
+            Menu.SubMenu("Auto").AddItem(new MenuItem("Auto_minrange", "R 最少人數").SetValue(new Slider(1050, 0, 1500)));
+            Menu.SubMenu("Auto").AddItem(new MenuItem("Auto_maxrange", "R 最近距離").SetValue(new Slider(3000, 1500, 5000)));
+            Menu.SubMenu("Auto").AddItem(new MenuItem("Auto_manaE", "留蓝E").SetValue(true));
 
-            Menu.AddSubMenu(new Menu("鏄剧ず", "Drawing"));
-            Menu.SubMenu("Drawing").AddItem(new MenuItem("Drawing_q", "Q鑼冨洿").SetValue(new Circle(true, Color.FromArgb(100, 0, 255, 0))));
-            Menu.SubMenu("Drawing").AddItem(new MenuItem("Drawing_w", "W鑼冨洿").SetValue(new Circle(true, Color.FromArgb(100, 0, 255, 0))));
-            Menu.SubMenu("Drawing").AddItem(new MenuItem("Drawing_rdamage", "R浼ゅ鎸囩ず").SetValue(true));
-			
-			Menu.AddSubMenu(new Menu("L#涓枃绀惧尯", "AD"));
-				Menu.SubMenu("AD").AddItem(new MenuItem("wangzhan", "www.loll35.com"));
-				Menu.SubMenu("AD").AddItem(new MenuItem("qunhao", "姹夊寲缇わ細397983217"));
+            Menu.AddSubMenu(new Menu("显示", "Drawing"));
+            Menu.SubMenu("Drawing").AddItem(new MenuItem("Drawing_q", "Q范围").SetValue(new Circle(true, Color.FromArgb(100, 0, 255, 0))));
+            Menu.SubMenu("Drawing").AddItem(new MenuItem("Drawing_w", "W范围").SetValue(new Circle(true, Color.FromArgb(100, 0, 255, 0))));
+            Menu.SubMenu("Drawing").AddItem(new MenuItem("Drawing_rdamage", "R伤害指示").SetValue(true));
         }
 
         protected override void Combo()
