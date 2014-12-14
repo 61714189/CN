@@ -28,8 +28,8 @@ namespace DevCommom
             Menu = menu;
             if (SpellPriorityList.Count > 0)
             {
-                Menu.AddSubMenu(new Menu("Spell Level Up", "LevelUp"));
-                Menu.SubMenu("LevelUp").AddItem(new MenuItem("LevelUp_" + ObjectManager.Player.ChampionName + "_enabled", "Enable").SetValue(true));
+                Menu.AddSubMenu(new Menu("自动加点", "LevelUp"));
+                Menu.SubMenu("LevelUp").AddItem(new MenuItem("LevelUp_" + ObjectManager.Player.ChampionName + "_enabled", "启用").SetValue(true));
                 Menu.SubMenu("LevelUp").AddItem(new MenuItem("LevelUp_" + ObjectManager.Player.ChampionName + "_select", "").SetValue(new StringList(SpellPriorityList.Keys.ToArray())));
                 SelectedPriority = Menu.Item("LevelUp_" + ObjectManager.Player.ChampionName + "_select").GetValue<StringList>().SelectedIndex;
             }

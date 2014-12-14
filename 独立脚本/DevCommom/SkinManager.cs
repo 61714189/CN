@@ -24,9 +24,9 @@ namespace DevCommom
             Menu = menu;
             if (Skins.Count > 0)
             {
-                Menu.AddSubMenu(new Menu("Skin Changer", "Skin Changer"));
-                Menu.SubMenu("Skin Changer").AddItem(new MenuItem("Skin_" + ObjectManager.Player.ChampionName + "_enabled", "Enable skin changer").SetValue(true));
-                Menu.SubMenu("Skin Changer").AddItem(new MenuItem("Skin_" + ObjectManager.Player.ChampionName + "_select", "Skins").SetValue(new StringList(Skins.ToArray())));
+                Menu.AddSubMenu(new Menu("换肤", "Skin Changer"));
+                Menu.SubMenu("Skin Changer").AddItem(new MenuItem("Skin_" + ObjectManager.Player.ChampionName + "_enabled", "启用换肤").SetValue(true));
+                Menu.SubMenu("Skin Changer").AddItem(new MenuItem("Skin_" + ObjectManager.Player.ChampionName + "_select", "皮肤选择").SetValue(new StringList(Skins.ToArray())));
                 SelectedSkin = Menu.Item("Skin_" + ObjectManager.Player.ChampionName + "_select").GetValue<StringList>().SelectedIndex;
             }
         }

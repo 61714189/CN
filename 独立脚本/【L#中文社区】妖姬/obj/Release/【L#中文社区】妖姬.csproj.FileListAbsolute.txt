@@ -1,6 +1,0 @@
-C:\Users\Administrator\Desktop\123\初见脚本集\【L#中文社区】妖姬\obj\Release\FedLeblanc.Properties.Resources.resources
-C:\Users\Administrator\Desktop\123\初见脚本集\【L#中文社区】妖姬\obj\Release\【L#中文社区】妖姬.csproj.GenerateResource.Cache
-C:\Users\Administrator\Desktop\123\初见脚本集\【L#中文社区】妖姬\obj\Release\【L#中文社区】妖姬.csprojResolveAssemblyReference.cache
-C:\CN\独立脚本\【L#中文社区】妖姬\obj\Release\【L#中文社区】妖姬.csprojResolveAssemblyReference.cache
-C:\CN\独立脚本\【L#中文社区】妖姬\obj\Release\FedLeblanc.Properties.Resources.resources
-C:\CN\独立脚本\【L#中文社区】妖姬\obj\Release\【L#中文社区】妖姬.csproj.GenerateResource.Cache
